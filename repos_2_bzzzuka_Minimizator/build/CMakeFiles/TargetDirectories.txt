@@ -1,0 +1,3 @@
+D:/Worknfiles/minimization-develop/build/CMakeFiles/rebuild_cache.dir
+D:/Worknfiles/minimization-develop/build/CMakeFiles/main.dir
+D:/Worknfiles/minimization-develop/build/CMakeFiles/edit_cache.dir

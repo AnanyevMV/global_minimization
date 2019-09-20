@@ -1,0 +1,178 @@
+\hypertarget{structParameters}{}\section{Структура Parameters}
+\label{structParameters}\index{Parameters@{Parameters}}
+
+
+Структура, содержащая статические параметры для методов  
+
+
+
+
+{\ttfamily \#include $<$Parameters.\+h$>$}
+
+\subsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structParameters_a368bf1936a6e30fcf0f1b5a4684e9ed5}\label{structParameters_a368bf1936a6e30fcf0f1b5a4684e9ed5}} 
+static void {\bfseries upd\+Params} (Method method, Vector params)
+\item 
+\mbox{\Hypertarget{structParameters_a746b5af69e00ca8a658fe534d3bdad1a}\label{structParameters_a746b5af69e00ca8a658fe534d3bdad1a}} 
+static Vector {\bfseries get\+Params} (Method method)
+\item 
+\mbox{\Hypertarget{structParameters_a2b012cce011dd93644b07eb4282771cb}\label{structParameters_a2b012cce011dd93644b07eb4282771cb}} 
+static Vector {\bfseries n\+Grad} (Method method, Vector \&params, \mbox{\hyperlink{structFlist}{F\+L\+I\+S\+T\+P\+TR}} head, Real n\+Grad\+\_\+accuracy, Real grad\+\_\+accuracy, int iter\+\_\+lim)
+\item 
+\mbox{\Hypertarget{structParameters_aea4455260843154032a3550831822792}\label{structParameters_aea4455260843154032a3550831822792}} 
+static Real {\bfseries s\+Norm} (Method method, \mbox{\hyperlink{structFlist}{F\+L\+I\+S\+T\+P\+TR}} head, Real grad\+\_\+accuracy, int iter\+\_\+lim)
+\item 
+\mbox{\Hypertarget{structParameters_aa2f181a1edb235cf869cb2b0b67c1093}\label{structParameters_aa2f181a1edb235cf869cb2b0b67c1093}} 
+static void {\bfseries check\+Params} (Vector \&params)
+\item 
+\mbox{\Hypertarget{structParameters_a7975677ffd93e4c0022582c2805b80e3}\label{structParameters_a7975677ffd93e4c0022582c2805b80e3}} 
+static void {\bfseries calc\+Params} (\mbox{\hyperlink{structFlist}{F\+L\+I\+S\+T\+P\+TR}} fhead, \mbox{\hyperlink{structMlist}{M\+L\+I\+S\+T\+P\+TR}} mhead, Real n\+Grad\+\_\+accuracy, Real grad\+\_\+accuracy, int iter\+\_\+limit, int method\+\_\+iter\+\_\+limit, Real stop\+\_\+condition)
+\end{DoxyCompactItemize}
+\subsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+static Real \mbox{\hyperlink{structParameters_a8c6cd65deec4169ae0cdefffcb8e2252}{Adam\+\_\+beta1}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a2a80a92cc9f7a7748293b1aee8eb44d9}{Adam\+\_\+beta2}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a16a784f47a8334f61e84429b4397f179}{Adam\+\_\+gamma}}
+\item 
+static Real \mbox{\hyperlink{structParameters_accecb0c309434afde3b2ae24e90a5740}{Rms\+Prop\+\_\+beta}}
+\item 
+static Real \mbox{\hyperlink{structParameters_ac50274e2816fd25aeee99e23891c5b2e}{Rms\+Prop\+\_\+alpha}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a9fc2748adaa357bf6e4ad14bcd86ade9}{Adagrad\+\_\+beta}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a6933336b29f335b8ac36a4911abda94b}{Ada\+Max\+\_\+beta1}}
+\item 
+static Real \mbox{\hyperlink{structParameters_ae820275a1b04e2241862fa9141d3fd29}{Ada\+Max\+\_\+beta2}}
+\item 
+static Real \mbox{\hyperlink{structParameters_afd6670c75d952d6e2cdc6e71e197b829}{Ada\+Max\+\_\+gamma}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a214aefe35044cc9c7782cb9b33dfee2c}{Adadelta\+\_\+beta}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a284908bd2b8c0870ed3d8b91e9b36ce1}{Nadam\+\_\+beta1}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a5c13cf58c0e058aabb32fce5077a25ba}{Nadam\+\_\+beta2}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a5423a84040552a929659b92fbc2a24a9}{Nadam\+\_\+gamma}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a8f7de16c67faf86be3a0f97987552ced}{A\+M\+S\+Grad\+\_\+beta1}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a56ae3ad51b4610d5e2fa1f9f96db1a78}{A\+M\+S\+Grad\+\_\+beta2}}
+\item 
+static Real \mbox{\hyperlink{structParameters_a7d974fd144aa816e6d93a1c8cc666cbc}{A\+M\+S\+Grad\+\_\+gamma}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Структура, содержащая статические параметры для методов 
+
+\href{https://3dbabove.com/2017/11/14/optimizationalgorithms/}{\tt https\+://3dbabove.\+com/2017/11/14/optimizationalgorithms/} 
+
+\subsection{Данные класса}
+\mbox{\Hypertarget{structParameters_a214aefe35044cc9c7782cb9b33dfee2c}\label{structParameters_a214aefe35044cc9c7782cb9b33dfee2c}} 
+\index{Parameters@{Parameters}!Adadelta\+\_\+beta@{Adadelta\+\_\+beta}}
+\index{Adadelta\+\_\+beta@{Adadelta\+\_\+beta}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Adadelta\+\_\+beta}{Adadelta\_beta}}
+{\footnotesize\ttfamily Real Parameters\+::\+Adadelta\+\_\+beta\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения второго момента в выражении v = (1 -\/ beta) $\ast$ gd, где gd -\/ покомпонентный квадрат градиента; v -\/ момент второго порядка \mbox{\Hypertarget{structParameters_a9fc2748adaa357bf6e4ad14bcd86ade9}\label{structParameters_a9fc2748adaa357bf6e4ad14bcd86ade9}} 
+\index{Parameters@{Parameters}!Adagrad\+\_\+beta@{Adagrad\+\_\+beta}}
+\index{Adagrad\+\_\+beta@{Adagrad\+\_\+beta}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Adagrad\+\_\+beta}{Adagrad\_beta}}
+{\footnotesize\ttfamily Real Parameters\+::\+Adagrad\+\_\+beta\hspace{0.3cm}{\ttfamily [static]}}
+
+Шаг обучения \mbox{\Hypertarget{structParameters_a8c6cd65deec4169ae0cdefffcb8e2252}\label{structParameters_a8c6cd65deec4169ae0cdefffcb8e2252}} 
+\index{Parameters@{Parameters}!Adam\+\_\+beta1@{Adam\+\_\+beta1}}
+\index{Adam\+\_\+beta1@{Adam\+\_\+beta1}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Adam\+\_\+beta1}{Adam\_beta1}}
+{\footnotesize\ttfamily Real Parameters\+::\+Adam\+\_\+beta1\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения первого момента в выражении m = (1 -\/ beta1) $\ast$ g, где g -\/ градиент; m -\/ момент \mbox{\Hypertarget{structParameters_a2a80a92cc9f7a7748293b1aee8eb44d9}\label{structParameters_a2a80a92cc9f7a7748293b1aee8eb44d9}} 
+\index{Parameters@{Parameters}!Adam\+\_\+beta2@{Adam\+\_\+beta2}}
+\index{Adam\+\_\+beta2@{Adam\+\_\+beta2}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Adam\+\_\+beta2}{Adam\_beta2}}
+{\footnotesize\ttfamily Real Parameters\+::\+Adam\+\_\+beta2\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения второго момента в выражении v = (1 -\/ beta2) $\ast$ gd, где gd -\/ покомпонентный квадрат градиента; v -\/ момент второго порядка \mbox{\Hypertarget{structParameters_a16a784f47a8334f61e84429b4397f179}\label{structParameters_a16a784f47a8334f61e84429b4397f179}} 
+\index{Parameters@{Parameters}!Adam\+\_\+gamma@{Adam\+\_\+gamma}}
+\index{Adam\+\_\+gamma@{Adam\+\_\+gamma}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Adam\+\_\+gamma}{Adam\_gamma}}
+{\footnotesize\ttfamily Real Parameters\+::\+Adam\+\_\+gamma\hspace{0.3cm}{\ttfamily [static]}}
+
+Шаг обучения \mbox{\Hypertarget{structParameters_a6933336b29f335b8ac36a4911abda94b}\label{structParameters_a6933336b29f335b8ac36a4911abda94b}} 
+\index{Parameters@{Parameters}!Ada\+Max\+\_\+beta1@{Ada\+Max\+\_\+beta1}}
+\index{Ada\+Max\+\_\+beta1@{Ada\+Max\+\_\+beta1}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Ada\+Max\+\_\+beta1}{AdaMax\_beta1}}
+{\footnotesize\ttfamily Real Parameters\+::\+Ada\+Max\+\_\+beta1\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения первого момента в выражении m = (1 -\/ beta1) $\ast$ g, где g -\/ градиент; m -\/ момент \mbox{\Hypertarget{structParameters_ae820275a1b04e2241862fa9141d3fd29}\label{structParameters_ae820275a1b04e2241862fa9141d3fd29}} 
+\index{Parameters@{Parameters}!Ada\+Max\+\_\+beta2@{Ada\+Max\+\_\+beta2}}
+\index{Ada\+Max\+\_\+beta2@{Ada\+Max\+\_\+beta2}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Ada\+Max\+\_\+beta2}{AdaMax\_beta2}}
+{\footnotesize\ttfamily Real Parameters\+::\+Ada\+Max\+\_\+beta2\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения нормы Lp градиента при p стремящимся к бесконечности; v -\/ норма градиента \mbox{\Hypertarget{structParameters_afd6670c75d952d6e2cdc6e71e197b829}\label{structParameters_afd6670c75d952d6e2cdc6e71e197b829}} 
+\index{Parameters@{Parameters}!Ada\+Max\+\_\+gamma@{Ada\+Max\+\_\+gamma}}
+\index{Ada\+Max\+\_\+gamma@{Ada\+Max\+\_\+gamma}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Ada\+Max\+\_\+gamma}{AdaMax\_gamma}}
+{\footnotesize\ttfamily Real Parameters\+::\+Ada\+Max\+\_\+gamma\hspace{0.3cm}{\ttfamily [static]}}
+
+Шаг обучения \mbox{\Hypertarget{structParameters_a8f7de16c67faf86be3a0f97987552ced}\label{structParameters_a8f7de16c67faf86be3a0f97987552ced}} 
+\index{Parameters@{Parameters}!A\+M\+S\+Grad\+\_\+beta1@{A\+M\+S\+Grad\+\_\+beta1}}
+\index{A\+M\+S\+Grad\+\_\+beta1@{A\+M\+S\+Grad\+\_\+beta1}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{A\+M\+S\+Grad\+\_\+beta1}{AMSGrad\_beta1}}
+{\footnotesize\ttfamily Real Parameters\+::\+A\+M\+S\+Grad\+\_\+beta1\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения первого момента в выражении m = (1 -\/ beta1) $\ast$ g, где g -\/ градиент; m -\/ момент \mbox{\Hypertarget{structParameters_a56ae3ad51b4610d5e2fa1f9f96db1a78}\label{structParameters_a56ae3ad51b4610d5e2fa1f9f96db1a78}} 
+\index{Parameters@{Parameters}!A\+M\+S\+Grad\+\_\+beta2@{A\+M\+S\+Grad\+\_\+beta2}}
+\index{A\+M\+S\+Grad\+\_\+beta2@{A\+M\+S\+Grad\+\_\+beta2}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{A\+M\+S\+Grad\+\_\+beta2}{AMSGrad\_beta2}}
+{\footnotesize\ttfamily Real Parameters\+::\+A\+M\+S\+Grad\+\_\+beta2\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения второго момента в выражении v = (1 -\/ beta2) $\ast$ gd, где gd -\/ покомпонентный квадрат градиента; v -\/ момент второго порядка \mbox{\Hypertarget{structParameters_a7d974fd144aa816e6d93a1c8cc666cbc}\label{structParameters_a7d974fd144aa816e6d93a1c8cc666cbc}} 
+\index{Parameters@{Parameters}!A\+M\+S\+Grad\+\_\+gamma@{A\+M\+S\+Grad\+\_\+gamma}}
+\index{A\+M\+S\+Grad\+\_\+gamma@{A\+M\+S\+Grad\+\_\+gamma}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{A\+M\+S\+Grad\+\_\+gamma}{AMSGrad\_gamma}}
+{\footnotesize\ttfamily Real Parameters\+::\+A\+M\+S\+Grad\+\_\+gamma\hspace{0.3cm}{\ttfamily [static]}}
+
+Шаг обучения \mbox{\Hypertarget{structParameters_a284908bd2b8c0870ed3d8b91e9b36ce1}\label{structParameters_a284908bd2b8c0870ed3d8b91e9b36ce1}} 
+\index{Parameters@{Parameters}!Nadam\+\_\+beta1@{Nadam\+\_\+beta1}}
+\index{Nadam\+\_\+beta1@{Nadam\+\_\+beta1}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Nadam\+\_\+beta1}{Nadam\_beta1}}
+{\footnotesize\ttfamily Real Parameters\+::\+Nadam\+\_\+beta1\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения первого момента в выражении m = (1 -\/ beta1) $\ast$ g, где g -\/ градиент; m -\/ момент \mbox{\Hypertarget{structParameters_a5c13cf58c0e058aabb32fce5077a25ba}\label{structParameters_a5c13cf58c0e058aabb32fce5077a25ba}} 
+\index{Parameters@{Parameters}!Nadam\+\_\+beta2@{Nadam\+\_\+beta2}}
+\index{Nadam\+\_\+beta2@{Nadam\+\_\+beta2}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Nadam\+\_\+beta2}{Nadam\_beta2}}
+{\footnotesize\ttfamily Real Parameters\+::\+Nadam\+\_\+beta2\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения второго момента в выражении v = (1 -\/ beta2) $\ast$ gd, где gd -\/ покомпонентный квадрат градиента; v -\/ момент второго порядка \mbox{\Hypertarget{structParameters_a5423a84040552a929659b92fbc2a24a9}\label{structParameters_a5423a84040552a929659b92fbc2a24a9}} 
+\index{Parameters@{Parameters}!Nadam\+\_\+gamma@{Nadam\+\_\+gamma}}
+\index{Nadam\+\_\+gamma@{Nadam\+\_\+gamma}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Nadam\+\_\+gamma}{Nadam\_gamma}}
+{\footnotesize\ttfamily Real Parameters\+::\+Nadam\+\_\+gamma\hspace{0.3cm}{\ttfamily [static]}}
+
+Шаг обучения \mbox{\Hypertarget{structParameters_ac50274e2816fd25aeee99e23891c5b2e}\label{structParameters_ac50274e2816fd25aeee99e23891c5b2e}} 
+\index{Parameters@{Parameters}!Rms\+Prop\+\_\+alpha@{Rms\+Prop\+\_\+alpha}}
+\index{Rms\+Prop\+\_\+alpha@{Rms\+Prop\+\_\+alpha}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Rms\+Prop\+\_\+alpha}{RmsProp\_alpha}}
+{\footnotesize\ttfamily Real Parameters\+::\+Rms\+Prop\+\_\+alpha\hspace{0.3cm}{\ttfamily [static]}}
+
+Шаг обучения \mbox{\Hypertarget{structParameters_accecb0c309434afde3b2ae24e90a5740}\label{structParameters_accecb0c309434afde3b2ae24e90a5740}} 
+\index{Parameters@{Parameters}!Rms\+Prop\+\_\+beta@{Rms\+Prop\+\_\+beta}}
+\index{Rms\+Prop\+\_\+beta@{Rms\+Prop\+\_\+beta}!Parameters@{Parameters}}
+\subsubsection{\texorpdfstring{Rms\+Prop\+\_\+beta}{RmsProp\_beta}}
+{\footnotesize\ttfamily Real Parameters\+::\+Rms\+Prop\+\_\+beta\hspace{0.3cm}{\ttfamily [static]}}
+
+Параметр сохранения второго момента в выражении v = (1 -\/ beta2) $\ast$ gd, где gd -\/ покомпонентный квадрат градиента; v -\/ момент второго порядка 
+
+Объявления и описания членов структур находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Tools/Parameters.\+h\item 
+src/\+Tools/Config\+Actions.\+cpp\item 
+src/\+Tools/Parameters.\+cpp\end{DoxyCompactItemize}

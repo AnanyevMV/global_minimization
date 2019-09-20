@@ -1,0 +1,72 @@
+\hypertarget{structIterationData}{}\section{Структура Iteration\+Data}
+\label{structIterationData}\index{Iteration\+Data@{Iteration\+Data}}
+
+
+Структура данных итерации метода  
+
+
+
+
+{\ttfamily \#include $<$Data.\+h$>$}
+
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structIterationData_aefe60b0e2b945214d0fbb47be4f2f284}\label{structIterationData_aefe60b0e2b945214d0fbb47be4f2f284}} 
+void {\bfseries next} (const Vector \&x\+\_\+next, const Real f\+\_\+next)
+\end{DoxyCompactItemize}
+\subsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+Vector \mbox{\hyperlink{structIterationData_a38b2cd3fa64b815db288dc609d04ce75}{x\+\_\+prev}}
+\item 
+Real \mbox{\hyperlink{structIterationData_a7f0c8b8605e8ef5e0e11d753668f8db0}{f\+\_\+prev}}
+\item 
+Vector \mbox{\hyperlink{structIterationData_a747b834728d763e1d963b4cf48070a82}{x\+\_\+curr}}
+\item 
+Real \mbox{\hyperlink{structIterationData_afb4e4b7e351a408b3a29a1cf87413db1}{f\+\_\+curr}}
+\item 
+int \mbox{\hyperlink{structIterationData_a7308a9e6f23ac24d49919a6355638f45}{iter\+\_\+counter}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Структура данных итерации метода 
+
+\subsection{Данные класса}
+\mbox{\Hypertarget{structIterationData_afb4e4b7e351a408b3a29a1cf87413db1}\label{structIterationData_afb4e4b7e351a408b3a29a1cf87413db1}} 
+\index{Iteration\+Data@{Iteration\+Data}!f\+\_\+curr@{f\+\_\+curr}}
+\index{f\+\_\+curr@{f\+\_\+curr}!Iteration\+Data@{Iteration\+Data}}
+\subsubsection{\texorpdfstring{f\+\_\+curr}{f\_curr}}
+{\footnotesize\ttfamily Iteration\+Data\+::f\+\_\+curr}
+
+Значение функции в текущей точке \mbox{\Hypertarget{structIterationData_a7f0c8b8605e8ef5e0e11d753668f8db0}\label{structIterationData_a7f0c8b8605e8ef5e0e11d753668f8db0}} 
+\index{Iteration\+Data@{Iteration\+Data}!f\+\_\+prev@{f\+\_\+prev}}
+\index{f\+\_\+prev@{f\+\_\+prev}!Iteration\+Data@{Iteration\+Data}}
+\subsubsection{\texorpdfstring{f\+\_\+prev}{f\_prev}}
+{\footnotesize\ttfamily Iteration\+Data\+::f\+\_\+prev}
+
+Значение функции в предыдущей рассчитанной точке \mbox{\Hypertarget{structIterationData_a7308a9e6f23ac24d49919a6355638f45}\label{structIterationData_a7308a9e6f23ac24d49919a6355638f45}} 
+\index{Iteration\+Data@{Iteration\+Data}!iter\+\_\+counter@{iter\+\_\+counter}}
+\index{iter\+\_\+counter@{iter\+\_\+counter}!Iteration\+Data@{Iteration\+Data}}
+\subsubsection{\texorpdfstring{iter\+\_\+counter}{iter\_counter}}
+{\footnotesize\ttfamily Iteration\+Data\+::iter\+\_\+counter}
+
+Число отработанных итераций на текущий момент \mbox{\Hypertarget{structIterationData_a747b834728d763e1d963b4cf48070a82}\label{structIterationData_a747b834728d763e1d963b4cf48070a82}} 
+\index{Iteration\+Data@{Iteration\+Data}!x\+\_\+curr@{x\+\_\+curr}}
+\index{x\+\_\+curr@{x\+\_\+curr}!Iteration\+Data@{Iteration\+Data}}
+\subsubsection{\texorpdfstring{x\+\_\+curr}{x\_curr}}
+{\footnotesize\ttfamily Iteration\+Data\+::x\+\_\+curr}
+
+Текущий рассчитанный минимум \mbox{\Hypertarget{structIterationData_a38b2cd3fa64b815db288dc609d04ce75}\label{structIterationData_a38b2cd3fa64b815db288dc609d04ce75}} 
+\index{Iteration\+Data@{Iteration\+Data}!x\+\_\+prev@{x\+\_\+prev}}
+\index{x\+\_\+prev@{x\+\_\+prev}!Iteration\+Data@{Iteration\+Data}}
+\subsubsection{\texorpdfstring{x\+\_\+prev}{x\_prev}}
+{\footnotesize\ttfamily Iteration\+Data\+::x\+\_\+prev}
+
+Предыдущий рассчитанный минимум 
+
+Объявления и описания членов структур находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Tools/Data.\+h\item 
+src/\+Tools/Data.\+cpp\end{DoxyCompactItemize}

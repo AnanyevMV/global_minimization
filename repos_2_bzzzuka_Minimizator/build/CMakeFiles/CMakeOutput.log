@@ -1,0 +1,677 @@
+The system is: Windows - 10.0.16299 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: C:/msys64/usr/bin/gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+
+The C compiler identification is GNU, found in "D:/Worknfiles/minimization-develop/build/CMakeFiles/3.9.6/CompilerIdC/a.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/msys64/usr/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+
+The CXX compiler identification is GNU, found in "D:/Worknfiles/minimization-develop/build/CMakeFiles/3.9.6/CompilerIdCXX/a.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_7645d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7645d.dir/build.make CMakeFiles/cmTC_7645d.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7645d.dir/testCCompiler.c.obj
+/C/msys64/usr/bin/gcc.exe    -o CMakeFiles/cmTC_7645d.dir/testCCompiler.c.obj   -c /D/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_7645d.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_7645d.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_7645d.dir/objects.a "CMakeFiles/cmTC_7645d.dir/testCCompiler.c.obj" 
+/C/msys64/usr/bin/gcc.exe      -Wl,--whole-archive CMakeFiles/cmTC_7645d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_7645d.exe -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_f069d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f069d.dir/build.make CMakeFiles/cmTC_f069d.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f069d.dir/CMakeCCompilerABI.c.obj
+/C/msys64/usr/bin/gcc.exe    -o CMakeFiles/cmTC_f069d.dir/CMakeCCompilerABI.c.obj   -c /C/msys64/mingw64/share/cmake-3.9/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_f069d.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_f069d.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_f069d.dir/objects.a "CMakeFiles/cmTC_f069d.dir/CMakeCCompilerABI.c.obj" 
+/C/msys64/usr/bin/gcc.exe     -v -Wl,--whole-archive CMakeFiles/cmTC_f069d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f069d.exe -Wl,--major-image-version,0,--minor-image-version,0 
+Using built-in specs.
+COLLECT_GCC=/C/msys64/usr/bin/gcc
+COLLECT_LTO_WRAPPER=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe
+Target: x86_64-pc-msys
+Configured with: /msys_scripts/gcc/src/gcc-6.4.0/configure --build=x86_64-pc-msys --prefix=/usr --libexecdir=/usr/lib --enable-bootstrap --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --with-arch=x86-64 --with-tune=generic --disable-multilib --enable-__cxa_atexit --with-dwarf2 --enable-languages=c,c++,fortran,lto --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --enable-libssp --disable-win32-registry --disable-symvers --with-gnu-ld --with-gnu-as --disable-isl-version-check --enable-checking=release --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible
+Thread model: posix
+gcc version 6.4.0 (GCC) 
+COMPILER_PATH=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/:/C/msys64/usr/bin/../lib/gcc/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/bin/
+LIBRARY_PATH=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/:/C/msys64/usr/bin/../lib/gcc/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib/:/usr/lib/../lib/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/:/usr/lib/:/usr/lib/w32api/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f069d.exe' '-mtune=generic' '-march=x86-64'
+ /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/collect2.exe -plugin /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/msys-lto_plugin.dll -plugin-opt=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/c/Users/112as/AppData/Local/Temp/ccVhH7XZ.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmsys-2.0 -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=msys- --tsaware -o cmTC_f069d.exe /usr/lib/../lib/crt0.o /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtbegin.o -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0 -L/C/msys64/usr/bin/../lib/gcc -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib -L/usr/lib/../lib -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib -L/usr/lib/w32api --whole-archive CMakeFiles/cmTC_f069d.dir/objects.a --no-whole-archive --major-image-version 0 --minor-image-version 0 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc -lmsys-2.0 -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc /usr/lib/../lib/default-manifest.o /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f069d.exe' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_f069d/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_f069d.dir/build.make CMakeFiles/cmTC_f069d.dir/build]
+  ignore line: [make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_f069d.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/C/msys64/usr/bin/gcc.exe    -o CMakeFiles/cmTC_f069d.dir/CMakeCCompilerABI.c.obj   -c /C/msys64/mingw64/share/cmake-3.9/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_f069d.exe]
+  ignore line: [/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_f069d.dir/objects.a]
+  ignore line: [/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_f069d.dir/objects.a "CMakeFiles/cmTC_f069d.dir/CMakeCCompilerABI.c.obj" ]
+  ignore line: [/C/msys64/usr/bin/gcc.exe     -v -Wl,--whole-archive CMakeFiles/cmTC_f069d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f069d.exe -Wl,--major-image-version,0,--minor-image-version,0 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/C/msys64/usr/bin/gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe]
+  ignore line: [Target: x86_64-pc-msys]
+  ignore line: [Configured with: /msys_scripts/gcc/src/gcc-6.4.0/configure --build=x86_64-pc-msys --prefix=/usr --libexecdir=/usr/lib --enable-bootstrap --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --with-arch=x86-64 --with-tune=generic --disable-multilib --enable-__cxa_atexit --with-dwarf2 --enable-languages=c,c++,fortran,lto --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --enable-libssp --disable-win32-registry --disable-symvers --with-gnu-ld --with-gnu-as --disable-isl-version-check --enable-checking=release --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/:/C/msys64/usr/bin/../lib/gcc/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/bin/]
+  ignore line: [LIBRARY_PATH=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/:/C/msys64/usr/bin/../lib/gcc/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib/:/usr/lib/../lib/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/:/usr/lib/:/usr/lib/w32api/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f069d.exe' '-mtune=generic' '-march=x86-64']
+  link line: [ /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/collect2.exe -plugin /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/msys-lto_plugin.dll -plugin-opt=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/c/Users/112as/AppData/Local/Temp/ccVhH7XZ.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmsys-2.0 -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=msys- --tsaware -o cmTC_f069d.exe /usr/lib/../lib/crt0.o /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtbegin.o -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0 -L/C/msys64/usr/bin/../lib/gcc -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib -L/usr/lib/../lib -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib -L/usr/lib/w32api --whole-archive CMakeFiles/cmTC_f069d.dir/objects.a --no-whole-archive --major-image-version 0 --minor-image-version 0 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc -lmsys-2.0 -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc /usr/lib/../lib/default-manifest.o /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtend.o]
+    arg [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/msys-lto_plugin.dll] ==> ignore
+    arg [-plugin-opt=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=/c/Users/112as/AppData/Local/Temp/ccVhH7XZ.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsys-2.0] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [-m] ==> ignore
+    arg [i386pep] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znwm] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znam] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnwmRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnamRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPvRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPvRKSt9nothrow_t] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [--dll-search-prefix=msys-] ==> ignore
+    arg [--tsaware] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_f069d.exe] ==> ignore
+    arg [/usr/lib/../lib/crt0.o] ==> ignore
+    arg [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtbegin.o] ==> ignore
+    arg [-L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0] ==> dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0]
+    arg [-L/C/msys64/usr/bin/../lib/gcc] ==> dir [/C/msys64/usr/bin/../lib/gcc]
+    arg [-L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib] ==> dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib] ==> dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib]
+    arg [-L/usr/lib/w32api] ==> dir [/usr/lib/w32api]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles/cmTC_f069d.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--undefined=___deregister_frame_info] ==> ignore
+    arg [--undefined=___register_frame_info] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmsys-2.0] ==> lib [msys-2.0]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--undefined=___deregister_frame_info] ==> ignore
+    arg [--undefined=___register_frame_info] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/../lib/default-manifest.o] ==> ignore
+    arg [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtend.o] ==> ignore
+  collapse library dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0] ==> [/C/msys64/usr/lib/gcc/x86_64-pc-msys/6.4.0]
+  collapse library dir [/C/msys64/usr/bin/../lib/gcc] ==> [/C/msys64/usr/lib/gcc]
+  collapse library dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib] ==> [/C/msys64/usr/x86_64-pc-msys/lib]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib] ==> [/C/msys64/usr/x86_64-pc-msys/lib]
+  collapse library dir [/usr/lib/w32api] ==> [/usr/lib/w32api]
+  implicit libs: [gcc_s;gcc;msys-2.0;advapi32;shell32;user32;kernel32;gcc_s;gcc]
+  implicit dirs: [/C/msys64/usr/lib/gcc/x86_64-pc-msys/6.4.0;/C/msys64/usr/lib/gcc;/C/msys64/usr/x86_64-pc-msys/lib;/usr/lib;/usr/lib/w32api]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_67431/fast"
+/usr/bin/make -f CMakeFiles/cmTC_67431.dir/build.make CMakeFiles/cmTC_67431.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_67431.dir/feature_tests.c.obj
+/C/msys64/usr/bin/gcc.exe   -std=c11 -o CMakeFiles/cmTC_67431.dir/feature_tests.c.obj   -c /D/Worknfiles/minimization-develop/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_67431.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_67431.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_67431.dir/objects.a "CMakeFiles/cmTC_67431.dir/feature_tests.c.obj" 
+/C/msys64/usr/bin/gcc.exe      -Wl,--whole-archive CMakeFiles/cmTC_67431.dir/objects.a -Wl,--no-whole-archive  -o cmTC_67431.exe -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_bd786/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bd786.dir/build.make CMakeFiles/cmTC_bd786.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bd786.dir/feature_tests.c.obj
+/C/msys64/usr/bin/gcc.exe   -std=c99 -o CMakeFiles/cmTC_bd786.dir/feature_tests.c.obj   -c /D/Worknfiles/minimization-develop/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_bd786.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_bd786.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_bd786.dir/objects.a "CMakeFiles/cmTC_bd786.dir/feature_tests.c.obj" 
+/C/msys64/usr/bin/gcc.exe      -Wl,--whole-archive CMakeFiles/cmTC_bd786.dir/objects.a -Wl,--no-whole-archive  -o cmTC_bd786.exe -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_3719a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3719a.dir/build.make CMakeFiles/cmTC_3719a.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3719a.dir/feature_tests.c.obj
+/C/msys64/usr/bin/gcc.exe   -std=c90 -o CMakeFiles/cmTC_3719a.dir/feature_tests.c.obj   -c /D/Worknfiles/minimization-develop/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_3719a.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_3719a.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_3719a.dir/objects.a "CMakeFiles/cmTC_3719a.dir/feature_tests.c.obj" 
+/C/msys64/usr/bin/gcc.exe      -Wl,--whole-archive CMakeFiles/cmTC_3719a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_3719a.exe -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_ef0a8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ef0a8.dir/build.make CMakeFiles/cmTC_ef0a8.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ef0a8.dir/testCXXCompiler.cxx.o
+/C/msys64/usr/bin/g++.exe     -o CMakeFiles/cmTC_ef0a8.dir/testCXXCompiler.cxx.o -c /D/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_ef0a8.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_ef0a8.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_ef0a8.dir/objects.a "CMakeFiles/cmTC_ef0a8.dir/testCXXCompiler.cxx.o" 
+/C/msys64/usr/bin/g++.exe      -Wl,--whole-archive CMakeFiles/cmTC_ef0a8.dir/objects.a -Wl,--no-whole-archive  -o cmTC_ef0a8.exe -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_5130e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5130e.dir/build.make CMakeFiles/cmTC_5130e.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5130e.dir/CMakeCXXCompilerABI.cpp.o
+/C/msys64/usr/bin/g++.exe     -o CMakeFiles/cmTC_5130e.dir/CMakeCXXCompilerABI.cpp.o -c /C/msys64/mingw64/share/cmake-3.9/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_5130e.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_5130e.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_5130e.dir/objects.a "CMakeFiles/cmTC_5130e.dir/CMakeCXXCompilerABI.cpp.o" 
+/C/msys64/usr/bin/g++.exe     -v -Wl,--whole-archive CMakeFiles/cmTC_5130e.dir/objects.a -Wl,--no-whole-archive  -o cmTC_5130e.exe -Wl,--major-image-version,0,--minor-image-version,0 
+Using built-in specs.
+COLLECT_GCC=/C/msys64/usr/bin/g++
+COLLECT_LTO_WRAPPER=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe
+Target: x86_64-pc-msys
+Configured with: /msys_scripts/gcc/src/gcc-6.4.0/configure --build=x86_64-pc-msys --prefix=/usr --libexecdir=/usr/lib --enable-bootstrap --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --with-arch=x86-64 --with-tune=generic --disable-multilib --enable-__cxa_atexit --with-dwarf2 --enable-languages=c,c++,fortran,lto --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --enable-libssp --disable-win32-registry --disable-symvers --with-gnu-ld --with-gnu-as --disable-isl-version-check --enable-checking=release --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible
+Thread model: posix
+gcc version 6.4.0 (GCC) 
+COMPILER_PATH=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/:/C/msys64/usr/bin/../lib/gcc/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/bin/
+LIBRARY_PATH=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/:/C/msys64/usr/bin/../lib/gcc/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib/:/usr/lib/../lib/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/:/usr/lib/:/usr/lib/w32api/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5130e.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/collect2.exe -plugin /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/msys-lto_plugin.dll -plugin-opt=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/c/Users/112as/AppData/Local/Temp/ccQgb8TG.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmsys-2.0 -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=msys- --tsaware -o cmTC_5130e.exe /usr/lib/../lib/crt0.o /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtbegin.o -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0 -L/C/msys64/usr/bin/../lib/gcc -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib -L/usr/lib/../lib -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib -L/usr/lib/w32api --whole-archive CMakeFiles/cmTC_5130e.dir/objects.a --no-whole-archive --major-image-version 0 --minor-image-version 0 -lstdc++ -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc -lmsys-2.0 -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc /usr/lib/../lib/default-manifest.o /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5130e.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_5130e/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_5130e.dir/build.make CMakeFiles/cmTC_5130e.dir/build]
+  ignore line: [make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_5130e.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/C/msys64/usr/bin/g++.exe     -o CMakeFiles/cmTC_5130e.dir/CMakeCXXCompilerABI.cpp.o -c /C/msys64/mingw64/share/cmake-3.9/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_5130e.exe]
+  ignore line: [/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_5130e.dir/objects.a]
+  ignore line: [/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_5130e.dir/objects.a "CMakeFiles/cmTC_5130e.dir/CMakeCXXCompilerABI.cpp.o" ]
+  ignore line: [/C/msys64/usr/bin/g++.exe     -v -Wl,--whole-archive CMakeFiles/cmTC_5130e.dir/objects.a -Wl,--no-whole-archive  -o cmTC_5130e.exe -Wl,--major-image-version,0,--minor-image-version,0 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/C/msys64/usr/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe]
+  ignore line: [Target: x86_64-pc-msys]
+  ignore line: [Configured with: /msys_scripts/gcc/src/gcc-6.4.0/configure --build=x86_64-pc-msys --prefix=/usr --libexecdir=/usr/lib --enable-bootstrap --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --with-arch=x86-64 --with-tune=generic --disable-multilib --enable-__cxa_atexit --with-dwarf2 --enable-languages=c,c++,fortran,lto --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --enable-libssp --disable-win32-registry --disable-symvers --with-gnu-ld --with-gnu-as --disable-isl-version-check --enable-checking=release --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/:/C/msys64/usr/bin/../lib/gcc/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/bin/]
+  ignore line: [LIBRARY_PATH=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/:/C/msys64/usr/bin/../lib/gcc/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib/:/usr/lib/../lib/:/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/:/usr/lib/:/usr/lib/w32api/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5130e.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/collect2.exe -plugin /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/msys-lto_plugin.dll -plugin-opt=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/c/Users/112as/AppData/Local/Temp/ccQgb8TG.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmsys-2.0 -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=msys- --tsaware -o cmTC_5130e.exe /usr/lib/../lib/crt0.o /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtbegin.o -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0 -L/C/msys64/usr/bin/../lib/gcc -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib -L/usr/lib/../lib -L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib -L/usr/lib/w32api --whole-archive CMakeFiles/cmTC_5130e.dir/objects.a --no-whole-archive --major-image-version 0 --minor-image-version 0 -lstdc++ -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc -lmsys-2.0 -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc /usr/lib/../lib/default-manifest.o /C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtend.o]
+    arg [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/msys-lto_plugin.dll] ==> ignore
+    arg [-plugin-opt=/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=/c/Users/112as/AppData/Local/Temp/ccQgb8TG.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsys-2.0] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [-m] ==> ignore
+    arg [i386pep] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znwm] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znam] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnwmRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnamRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPvRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPvRKSt9nothrow_t] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [--dll-search-prefix=msys-] ==> ignore
+    arg [--tsaware] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_5130e.exe] ==> ignore
+    arg [/usr/lib/../lib/crt0.o] ==> ignore
+    arg [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtbegin.o] ==> ignore
+    arg [-L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0] ==> dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0]
+    arg [-L/C/msys64/usr/bin/../lib/gcc] ==> dir [/C/msys64/usr/bin/../lib/gcc]
+    arg [-L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib] ==> dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib] ==> dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib]
+    arg [-L/usr/lib/w32api] ==> dir [/usr/lib/w32api]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles/cmTC_5130e.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--undefined=___deregister_frame_info] ==> ignore
+    arg [--undefined=___register_frame_info] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmsys-2.0] ==> lib [msys-2.0]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--undefined=___deregister_frame_info] ==> ignore
+    arg [--undefined=___register_frame_info] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/../lib/default-manifest.o] ==> ignore
+    arg [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/crtend.o] ==> ignore
+  collapse library dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0] ==> [/C/msys64/usr/lib/gcc/x86_64-pc-msys/6.4.0]
+  collapse library dir [/C/msys64/usr/bin/../lib/gcc] ==> [/C/msys64/usr/lib/gcc]
+  collapse library dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib/../lib] ==> [/C/msys64/usr/x86_64-pc-msys/lib]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/C/msys64/usr/bin/../lib/gcc/x86_64-pc-msys/6.4.0/../../../../x86_64-pc-msys/lib] ==> [/C/msys64/usr/x86_64-pc-msys/lib]
+  collapse library dir [/usr/lib/w32api] ==> [/usr/lib/w32api]
+  implicit libs: [stdc++;gcc_s;gcc;msys-2.0;advapi32;shell32;user32;kernel32;gcc_s;gcc]
+  implicit dirs: [/C/msys64/usr/lib/gcc/x86_64-pc-msys/6.4.0;/C/msys64/usr/lib/gcc;/C/msys64/usr/x86_64-pc-msys/lib;/usr/lib;/usr/lib/w32api]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++1z] compiler features compiled with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_99bf5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_99bf5.dir/build.make CMakeFiles/cmTC_99bf5.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_99bf5.dir/feature_tests.cxx.o
+/C/msys64/usr/bin/g++.exe    -std=c++1z -o CMakeFiles/cmTC_99bf5.dir/feature_tests.cxx.o -c /D/Worknfiles/minimization-develop/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_99bf5.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_99bf5.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_99bf5.dir/objects.a "CMakeFiles/cmTC_99bf5.dir/feature_tests.cxx.o" 
+/C/msys64/usr/bin/g++.exe      -Wl,--whole-archive CMakeFiles/cmTC_99bf5.dir/objects.a -Wl,--no-whole-archive  -o cmTC_99bf5.exe -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_c1124/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c1124.dir/build.make CMakeFiles/cmTC_c1124.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c1124.dir/feature_tests.cxx.o
+/C/msys64/usr/bin/g++.exe    -std=c++14 -o CMakeFiles/cmTC_c1124.dir/feature_tests.cxx.o -c /D/Worknfiles/minimization-develop/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c1124.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_c1124.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_c1124.dir/objects.a "CMakeFiles/cmTC_c1124.dir/feature_tests.cxx.o" 
+/C/msys64/usr/bin/g++.exe      -Wl,--whole-archive CMakeFiles/cmTC_c1124.dir/objects.a -Wl,--no-whole-archive  -o cmTC_c1124.exe -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_a1a3a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a1a3a.dir/build.make CMakeFiles/cmTC_a1a3a.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a1a3a.dir/feature_tests.cxx.o
+/C/msys64/usr/bin/g++.exe    -std=c++11 -o CMakeFiles/cmTC_a1a3a.dir/feature_tests.cxx.o -c /D/Worknfiles/minimization-develop/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_a1a3a.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_a1a3a.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_a1a3a.dir/objects.a "CMakeFiles/cmTC_a1a3a.dir/feature_tests.cxx.o" 
+/C/msys64/usr/bin/g++.exe      -Wl,--whole-archive CMakeFiles/cmTC_a1a3a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a1a3a.exe -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: D:/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTC_7f703/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7f703.dir/build.make CMakeFiles/cmTC_7f703.dir/build
+make[1]: Entering directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7f703.dir/feature_tests.cxx.o
+/C/msys64/usr/bin/g++.exe    -std=c++98 -o CMakeFiles/cmTC_7f703.dir/feature_tests.cxx.o -c /D/Worknfiles/minimization-develop/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_7f703.exe
+/C/msys64/mingw64/bin/cmake.exe -E remove -f CMakeFiles/cmTC_7f703.dir/objects.a
+/C/msys64/usr/bin/ar.exe cr CMakeFiles/cmTC_7f703.dir/objects.a "CMakeFiles/cmTC_7f703.dir/feature_tests.cxx.o" 
+/C/msys64/usr/bin/g++.exe      -Wl,--whole-archive CMakeFiles/cmTC_7f703.dir/objects.a -Wl,--no-whole-archive  -o cmTC_7f703.exe -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/d/Worknfiles/minimization-develop/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates

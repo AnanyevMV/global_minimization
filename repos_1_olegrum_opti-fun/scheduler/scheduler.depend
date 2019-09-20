@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1492334005 source:c:\users\1\downloads\mirea\project\scheduler\main.cpp
+	<pthread.h>
+	<iostream>
+	<stack>
+	<fstream>
+	<ctime>
+	<time.h>
+	<limits>
+	<new>
+	"tms.h"
+	"powell.h"
+	"SCmathlib.h"
+	"dfp.h"
+	<windows.h>
+	<unistd.h>
+
+1489523481 c:\users\1\downloads\mirea\project\scheduler\tms.h
+	<cmath>
+	<vector>
+	<algorithm>
+
+1492333372 c:\users\1\downloads\mirea\project\scheduler\powell.h
+	<iostream>
+	<cmath>
+	<string>
+	<map>
+	<vector>
+	<tuple>
+	<functional>
+	<utility>
+	"nrutil.h"
+
+1489394623 c:\users\1\downloads\mirea\project\scheduler\nrutil.h
+	<stdio.h>
+	<iostream>
+	<stddef.h>
+	<stdlib.h>
+
+1491160394 c:\users\1\downloads\mirea\project\scheduler\scmathlib.h
+	<cmath>
+	<iostream>
+
+1491942446 c:\users\1\downloads\mirea\project\scheduler\dfp.h
+	<iomanip>
+	"SCmathlib.h"
+	<cmath>
+
+1491765891 source:c:\users\1\downloads\mirea\project\scheduler\scmathlib.cpp
+	"SCmathlib.h"
+

@@ -1,0 +1,233 @@
+Function with demension = 2
+Test 1 : 
+minimum at           -1          -1 Function value:   -2.22e-16 In 4 iterations
+minimum at           -1          -1 Function value:           0 In 0 iterations
+minimum at           -1          -1 Function value:   -2.22e-16 In 4 iterations
+minimum at           -1          -1 Function value:   -1.11e-16 In 3 iterations
+minimum at           -1          -1 Function value:           0 In 3 iterations
+
+Function with demension = 2
+Test 2 : 
+minimum at      -0.9787      -2.255 Function value:      -8.064 In 1 iterations
+minimum at      -0.9787      -2.255 Function value:      -8.064 In 2 iterations
+minimum at      -0.9787      -2.255 Function value:      -8.064 In 2 iterations
+minimum at      -0.9787      -2.255 Function value:      -8.064 In 2 iterations
+minimum at      -0.9787      -2.255 Function value:      -8.064 In 2 iterations
+
+Function with demension = 2
+Test 3 : 
+minimum at         -9.5          -5 Function value:       54.25 In 3 iterations
+minimum at         -9.5          -5 Function value:       54.25 In 3 iterations
+minimum at         -9.5          -5 Function value:       54.25 In 3 iterations
+minimum at         -9.5          -5 Function value:       54.25 In 4 iterations
+minimum at         -9.5          -5 Function value:       54.25 In 2 iterations
+
+Function with demension = 3
+Test 4 : 
+minimum at        -0.25       -0.25       -0.25 Function value:       0.625 In 4 iterations
+minimum at        -0.25       -0.25       -0.25 Function value:       0.625 In 4 iterations
+minimum at        -0.25       -0.25       -0.25 Function value:       0.625 In 4 iterations
+minimum at        -0.25       -0.25       -0.25 Function value:       0.625 In 4 iterations
+minimum at        -0.25       -0.25       -0.25 Function value:       0.625 In 4 iterations
+
+Function with demension = 2
+Test 5 : 
+minimum at       0.5821      -0.526 Function value:      -2.296 In 3 iterations
+minimum at       0.5821      -0.526 Function value:      -2.296 In 2 iterations
+minimum at            0           0 Function value:           0 In 0 iterations
+minimum at      -0.5821       0.526 Function value:      -2.296 In 2 iterations
+minimum at      -0.5821       0.526 Function value:      -2.296 In 3 iterations
+
+Function with demension = 2
+Test 6 : 
+minimum at       -1.088      -1.003 Function value:      -15.93 In 3 iterations
+minimum at       -1.088      -1.003 Function value:      -15.93 In 2 iterations
+minimum at            0           0 Function value:           0 In 0 iterations
+minimum at        1.088       1.003 Function value:      -15.93 In 2 iterations
+minimum at        1.088       1.003 Function value:      -15.93 In 3 iterations
+
+Function with demension = 2
+Test 7 : 
+minimum at    1.867e-22  -1.309e-22 Function value:     5.2e-44 In 5 iterations
+minimum at           -1          -1 Function value:           0 In 0 iterations
+minimum at            0           0 Function value:           0 In 0 iterations
+minimum at            1           1 Function value:           0 In 0 iterations
+minimum at   -1.868e-22    1.31e-22 Function value:   5.204e-44 In 5 iterations
+
+Function with demension = 2
+Test 8 : 
+minimum at       -1.348      -1.348 Function value:      -4.177 In 3 iterations
+minimum at       -1.348      -1.348 Function value:      -4.177 In 3 iterations
+minimum at            0           0 Function value:           0 In 0 iterations
+minimum at        1.348       1.348 Function value:      -4.177 In 3 iterations
+minimum at        1.348       1.348 Function value:      -4.177 In 3 iterations
+
+Function with demension = 2
+Test 9 : 
+minimum at           -1          -1 Function value:          -2 In 4 iterations
+minimum at           -1          -1 Function value:          -2 In 0 iterations
+minimum at           -1          -1 Function value:          -2 In 3 iterations
+minimum at            1           1 Function value:          -2 In 0 iterations
+minimum at            1           1 Function value:          -2 In 4 iterations
+
+Function with demension = 2
+Test 10 : 
+minimum at            1           1 Function value:           0 In 9 iterations
+minimum at            1           1 Function value:           0 In 9 iterations
+minimum at            1           1 Function value:   3.081e-33 In 7 iterations
+minimum at            1           1 Function value:           0 In 0 iterations
+minimum at            1           1 Function value:   3.081e-33 In 13 iterations
+
+Function with demension = 2
+Test 11 : 
+minimum at       0.8712      0.5178 Function value:     0.00415 In 25 iterations
+minimum at       0.2121     -0.9101 Function value:      0.1552 In 4 iterations
+minimum at       0.7071   3.305e-09 Function value:     0.02145 In 1 iterations
+minimum at            1           1 Function value:           0 In 0 iterations
+minimum at        1.225           2 Function value:     0.01263 In 1 iterations
+
+Function with demension = 2
+Test 12 : 
+minimum at       0.0625     -0.9922 Function value:      0.2344 In 1 iterations
+minimum at       0.0625     -0.9922 Function value:      0.2344 In 1 iterations
+minimum at       0.7071   1.049e-08 Function value:     0.07322 In 1 iterations
+minimum at            1           1 Function value:           0 In 0 iterations
+minimum at        1.225           2 Function value:     0.05619 In 1 iterations
+
+Function with demension = 2
+Test 13 : 
+minimum at            1           1 Function value:           0 In 13 iterations
+minimum at            1           1 Function value:    4.93e-32 In 6 iterations
+minimum at            1           1 Function value:    4.93e-32 In 14 iterations
+minimum at            1           1 Function value:           0 In 0 iterations
+minimum at            1           1 Function value:     7.1e-30 In 17 iterations
+
+Function with demension = 2
+Test 14 : 
+minimum at         0.05      0.0025 Function value:        0.95 In 1 iterations
+minimum at         0.05      0.0025 Function value:        0.95 In 1 iterations
+minimum at       0.4176      0.1744 Function value:      0.5824 In 14 iterations
+minimum at            1           1 Function value:           0 In 0 iterations
+minimum at        1.414           2 Function value:      0.4142 In 1 iterations
+
+Function with demension = 2
+Test 15 : 
+minimum at   -6.163e-33           0 Function value:   3.798e-65 In 2 iterations
+minimum at    1.926e-34           0 Function value:   3.709e-68 In 2 iterations
+minimum at            0           0 Function value:           0 In 0 iterations
+minimum at   -9.244e-33           0 Function value:   8.546e-65 In 2 iterations
+minimum at    1.156e-33    4.93e-32 Function value:   2.432e-63 In 2 iterations
+
+Function with demension = 2
+Test 16 : 
+minimum at        2.214       2.214 Function value:          20 In 1 iterations
+minimum at        2.214       2.214 Function value:          20 In 1 iterations
+minimum at        2.214       2.214 Function value:          20 In 1 iterations
+minimum at        2.214       2.214 Function value:          20 In 1 iterations
+minimum at        3.198       3.198 Function value:          20 In 1 iterations
+
+Function with demension = 2
+Test 17 : 
+minimum at       -3.779      -3.283 Function value:   7.889e-31 In 4 iterations
+minimum at       -3.779      -3.283 Function value:   7.889e-31 In 5 iterations
+minimum at            3           2 Function value:   3.155e-30 In 5 iterations
+minimum at            3           2 Function value:           0 In 5 iterations
+minimum at            3           2 Function value:           0 In 1 iterations
+
+Function with demension = 4
+Test 18 : 
+minimum at       -1.906      -2.277      -2.792      -3.683 Function value:   2.532e-28 In 2 iterations
+minimum at        1.298       1.704       2.245       3.157 Function value:   5.364e-29 In 2 iterations
+minimum at        1.298       1.704       2.245       3.157 Function value:   5.364e-29 In 2 iterations
+minimum at        1.298       1.704       2.245       3.157 Function value:   5.364e-29 In 2 iterations
+minimum at        1.298       1.704       2.245       3.157 Function value:   5.364e-29 In 2 iterations
+
+Function with demension = 2
+Test 19 : 
+minimum at        3.142       9.011 Function value:      0.3979 In 3 iterations
+minimum at        3.142       9.011 Function value:      0.3979 In 3 iterations
+minimum at        3.142       9.011 Function value:      0.3979 In 4 iterations
+minimum at        3.142       9.011 Function value:      0.3979 In 4 iterations
+minimum at        3.142       9.011 Function value:      0.3979 In 5 iterations
+
+Function with demension = 2
+Test 20 : 
+minimum at        3.142       9.011 Function value:      0.3979 In 3 iterations
+minimum at        3.142       9.011 Function value:      0.3979 In 3 iterations
+minimum at        3.142       9.011 Function value:      0.3979 In 4 iterations
+minimum at        3.142       9.011 Function value:      0.3979 In 4 iterations
+minimum at        3.142       9.011 Function value:      0.3979 In 5 iterations
+
+Function with demension = 10
+Test 21 : 
+minimum at       0.5379     -0.4722      -0.524     -0.4652     -0.5611      -0.373       -0.72     0.03615     -0.9983      0.9939 Function value:     0.05713 In 58 iterations
+minimum at        0.538     -0.4742     -0.5223     -0.4678     -0.5517      -0.393     -0.6901    -0.04717     -0.9969       0.988 Function value:     0.05726 In 50 iterations
+minimum at       0.5499     -0.4463     -0.5735     -0.3552     -0.7385     0.08839     -0.9913      0.9676      0.8731      0.5248 Function value:     0.05436 In 147 iterations
+minimum at            1           1           1           1           1           1           1           1           1           1 Function value:           0 In 0 iterations
+minimum at            1           1           1           1       1.001       1.004       1.016       1.064       1.264       2.195 Function value:   3.665e-12 In 16 iterations
+
+Function with demension = 10
+Test 22 : 
+minimum at        2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214 Function value:         100 In 1 iterations
+minimum at        2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214 Function value:         100 In 1 iterations
+minimum at        2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214 Function value:         100 In 1 iterations
+minimum at        2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214       2.214 Function value:         100 In 1 iterations
+minimum at        3.198       3.198       3.198       3.198       3.198       3.198       3.198       3.198       3.198       3.198 Function value:         100 In 1 iterations
+
+Function with demension = 20
+Test 23 : 
+minimum at       0.5354      -0.481     -0.5092     -0.4953     -0.5023     -0.4988     -0.5006     -0.4998        -0.5     -0.5003     -0.4992     -0.5017     -0.4965     -0.5069      -0.486     -0.5276     -0.4433      -0.607      -0.263     -0.8617 Function value:     0.05796 In 12 iterations
+minimum at       0.5354      -0.481     -0.5092     -0.4953     -0.5023     -0.4988     -0.5006     -0.4997     -0.5001     -0.5001     -0.4997     -0.5008     -0.4983     -0.5034      -0.493     -0.5138      -0.472     -0.5544     -0.3852     -0.7032 Function value:     0.05796 In 11 iterations
+minimum at       0.5354      -0.481     -0.5092     -0.4953     -0.5023     -0.4988     -0.5006     -0.4997     -0.5002     -0.4997     -0.5005     -0.4989     -0.5021     -0.4958     -0.5083     -0.4832      -0.533     -0.4319      -0.627     -0.2138 Function value:     0.05796 In 11 iterations
+minimum at            1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1 Function value:           0 In 0 iterations
+minimum at            1           1           1           1           1           1           1           1           1           1           1           1           1           1       1.001       1.004       1.016       1.064       1.264       2.195 Function value:   3.333e-24 In 26 iterations
+
+Function with demension = 2
+Test 24 : 
+minimum at   -2.853e-17          -1 Function value:           0 In 2 iterations
+minimum at    8.213e-17          -1 Function value:           0 In 1 iterations
+minimum at            1   5.683e-19 Function value:           0 In 1 iterations
+minimum at       -1e-08           1 Function value:           0 In 1 iterations
+minimum at   -4.163e-17           1 Function value:           0 In 2 iterations
+
+Function with demension = 3
+Test 25 : 
+minimum at   -2.853e-17          -1       5.854 Function value:           0 In 2 iterations
+minimum at    8.213e-17          -1       4.236 Function value:           0 In 1 iterations
+minimum at            1   5.683e-19       5.236 Function value:           0 In 1 iterations
+minimum at       -1e-08           1       6.236 Function value:           0 In 1 iterations
+minimum at   -4.163e-17           1       9.854 Function value:           0 In 2 iterations
+
+Function with demension = 3
+Test 26 : 
+minimum at       -1.581      -1.581      -1.581 Function value:       -6.95 In 1 iterations
+minimum at       -1.581      -1.581      -1.581 Function value:       -6.95 In 1 iterations
+minimum at        1.581       1.581       1.581 Function value:       -6.95 In 1 iterations
+minimum at        1.581       1.581       1.581 Function value:       -6.95 In 1 iterations
+minimum at        1.581       1.581       1.581 Function value:       -6.95 In 1 iterations
+
+Function with demension = 100
+Test 27 : 
+minimum at       0.5354      -0.481     -0.5092     -0.4953     -0.5023     -0.4988     -0.5006     -0.4997     -0.5001     -0.4999        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5     -0.5001     -0.4999     -0.5004     -0.4992     -0.5017     -0.4966     -0.5069      -0.486     -0.5276     -0.4433      -0.607      -0.263     -0.8617 Function value:     0.05796 In 14 iterations
+minimum at       0.5354      -0.481     -0.5092     -0.4953     -0.5023     -0.4988     -0.5006     -0.4997     -0.5001     -0.4999        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5     -0.5002     -0.4996     -0.5009     -0.4983     -0.5035      -0.493     -0.5138      -0.472     -0.5544     -0.3852     -0.7032 Function value:     0.05796 In 11 iterations
+minimum at       0.5354      -0.481     -0.5092     -0.4953     -0.5023     -0.4988     -0.5006     -0.4997     -0.5001     -0.4999        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5        -0.5     -0.5001     -0.4998     -0.5005      -0.499     -0.5021     -0.4958     -0.5083     -0.4832      -0.533     -0.4319      -0.627     -0.2138 Function value:     0.05796 In 12 iterations
+minimum at            1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1 Function value:           0 In 0 iterations
+minimum at            1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1           1       1.001       1.004       1.016       1.064       1.264       2.195 Function value:    8.47e-28 In 28 iterations
+
+Function with demension = 2
+Test 28 : 
+minimum at        -2017       -1104 Function value:       -9624 In 1765 iterations
+minimum at        -2005       -1097 Function value:       -9623 In 921 iterations
+minimum at        -1979       -1083 Function value:       -9623 In 1081 iterations
+minimum at        -1976       -1082 Function value:       -9623 In 811 iterations
+minimum at        -1997       -1094 Function value:       -9626 In 2 iterations
+
+Function with demension = 2
+Test 29 : 
+minimum at         -0.5       -0.75 Function value:       -2.25 In 2 iterations
+minimum at         -0.5       -0.75 Function value:       -2.25 In 2 iterations
+minimum at         -0.5       -0.75 Function value:       -2.25 In 2 iterations
+minimum at         -0.5       -0.75 Function value:       -2.25 In 2 iterations
+minimum at         -0.5       -0.75 Function value:       -2.25 In 2 iterations
+
+

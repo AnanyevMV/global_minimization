@@ -1,0 +1,30 @@
+\hypertarget{structAMSGrad}{}\section{Структура A\+M\+S\+Grad}
+\label{structAMSGrad}\index{A\+M\+S\+Grad@{A\+M\+S\+Grad}}
+
+
+\mbox{\hyperlink{structAMSGrad}{A\+M\+S\+Grad}} that uses the maximum of past squared gradients v\+\_\+t rather than the exponential average to update the parameters. v\+\_\+t is defined the same as in \mbox{\hyperlink{structAdam}{Adam}}.  
+
+
+
+
+{\ttfamily \#include $<$A\+M\+S\+Grad.\+h$>$}
+
+
+
+\subsection{Подробное описание}
+\mbox{\hyperlink{structAMSGrad}{A\+M\+S\+Grad}} that uses the maximum of past squared gradients v\+\_\+t rather than the exponential average to update the parameters. v\+\_\+t is defined the same as in \mbox{\hyperlink{structAdam}{Adam}}. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em A\+M\+S\+Grad\+::start\+Point} & Точка старта минимизации \\
+\hline
+{\em A\+M\+S\+Grad\+::grad\+\_\+accuracy} & Точность расчета градиента в методе \\
+\hline
+{\em A\+M\+S\+Grad\+::iter\+\_\+limit} & Максимальное число итераций метода \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Methods/A\+M\+S\+Grad.\+h\end{DoxyCompactItemize}

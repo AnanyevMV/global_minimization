@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>min_by_grad_des: Исходный файл include/Tools/Parameters.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">min_by_grad_des
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_434bf685ef10b9139d2d8d07d0dc5138.html">Tools</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Parameters.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/* Tools */</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Functions.h&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Lists.h&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/* Methods */</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Methods/Adagrad.h&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Methods/Adam.h&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Methods/RmsProp.h&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;Methods/AdaMax.h&quot;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Methods/Adadelta.h&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;Methods/Nadam.h&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structParameters.html">   63</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structParameters.html">Parameters</a> {</div><div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="structParameters.html#a16a784f47a8334f61e84429b4397f179">   64</a></span>&#160;    <span class="keyword">static</span> Real <a class="code" href="structParameters.html#a8c6cd65deec4169ae0cdefffcb8e2252">Adam_beta1</a>, <a class="code" href="structParameters.html#a2a80a92cc9f7a7748293b1aee8eb44d9">Adam_beta2</a>, <a class="code" href="structParameters.html#a16a784f47a8334f61e84429b4397f179">Adam_gamma</a>;</div><div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structParameters.html#accecb0c309434afde3b2ae24e90a5740">   65</a></span>&#160;    <span class="keyword">static</span> Real <a class="code" href="structParameters.html#accecb0c309434afde3b2ae24e90a5740">RmsProp_beta</a>, <a class="code" href="structParameters.html#ac50274e2816fd25aeee99e23891c5b2e">RmsProp_alpha</a>;</div><div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structParameters.html#a9fc2748adaa357bf6e4ad14bcd86ade9">   66</a></span>&#160;    <span class="keyword">static</span> Real <a class="code" href="structParameters.html#a9fc2748adaa357bf6e4ad14bcd86ade9">Adagrad_beta</a>;</div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="structParameters.html#afd6670c75d952d6e2cdc6e71e197b829">   67</a></span>&#160;    <span class="keyword">static</span> Real <a class="code" href="structParameters.html#a6933336b29f335b8ac36a4911abda94b">AdaMax_beta1</a>, <a class="code" href="structParameters.html#ae820275a1b04e2241862fa9141d3fd29">AdaMax_beta2</a>, <a class="code" href="structParameters.html#afd6670c75d952d6e2cdc6e71e197b829">AdaMax_gamma</a>;</div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="structParameters.html#a214aefe35044cc9c7782cb9b33dfee2c">   68</a></span>&#160;    <span class="keyword">static</span> Real <a class="code" href="structParameters.html#a214aefe35044cc9c7782cb9b33dfee2c">Adadelta_beta</a>;</div><div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="structParameters.html#a5423a84040552a929659b92fbc2a24a9">   69</a></span>&#160;  <span class="keyword">static</span> Real <a class="code" href="structParameters.html#a284908bd2b8c0870ed3d8b91e9b36ce1">Nadam_beta1</a>, <a class="code" href="structParameters.html#a5c13cf58c0e058aabb32fce5077a25ba">Nadam_beta2</a>, <a class="code" href="structParameters.html#a5423a84040552a929659b92fbc2a24a9">Nadam_gamma</a>;</div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structParameters.html#a7d974fd144aa816e6d93a1c8cc666cbc">   70</a></span>&#160;    <span class="keyword">static</span> Real <a class="code" href="structParameters.html#a8f7de16c67faf86be3a0f97987552ced">AMSGrad_beta1</a>, <a class="code" href="structParameters.html#a56ae3ad51b4610d5e2fa1f9f96db1a78">AMSGrad_beta2</a>, <a class="code" href="structParameters.html#a7d974fd144aa816e6d93a1c8cc666cbc">AMSGrad_gamma</a>;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> updParams(Method method, Vector params);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">static</span> Vector getParams(Method method);</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> Vector nGrad(Method method, Vector &amp;params, <a class="code" href="structFlist.html">FLISTPTR</a> head, Real nGrad_accuracy, Real grad_accuracy, <span class="keywordtype">int</span> iter_lim);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> Real sNorm(Method method, <a class="code" href="structFlist.html">FLISTPTR</a> head, Real grad_accuracy, <span class="keywordtype">int</span> iter_lim);</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> checkParams(Vector &amp;params);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> calcParams(<a class="code" href="structFlist.html">FLISTPTR</a> fhead, <a class="code" href="structMlist.html">MLISTPTR</a> mhead, Real nGrad_accuracy, Real grad_accuracy, <span class="keywordtype">int</span> iter_limit, <span class="keywordtype">int</span> method_iter_limit, Real stop_condition);</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div><div class="ttc" id="structParameters_html_a284908bd2b8c0870ed3d8b91e9b36ce1"><div class="ttname"><a href="structParameters.html#a284908bd2b8c0870ed3d8b91e9b36ce1">Parameters::Nadam_beta1</a></div><div class="ttdeci">static Real Nadam_beta1</div><div class="ttdef"><b>Definition:</b> Parameters.h:69</div></div>
+<div class="ttc" id="structParameters_html_a6933336b29f335b8ac36a4911abda94b"><div class="ttname"><a href="structParameters.html#a6933336b29f335b8ac36a4911abda94b">Parameters::AdaMax_beta1</a></div><div class="ttdeci">static Real AdaMax_beta1</div><div class="ttdef"><b>Definition:</b> Parameters.h:67</div></div>
+<div class="ttc" id="structParameters_html_a7d974fd144aa816e6d93a1c8cc666cbc"><div class="ttname"><a href="structParameters.html#a7d974fd144aa816e6d93a1c8cc666cbc">Parameters::AMSGrad_gamma</a></div><div class="ttdeci">static Real AMSGrad_gamma</div><div class="ttdef"><b>Definition:</b> Parameters.h:70</div></div>
+<div class="ttc" id="structParameters_html_a5423a84040552a929659b92fbc2a24a9"><div class="ttname"><a href="structParameters.html#a5423a84040552a929659b92fbc2a24a9">Parameters::Nadam_gamma</a></div><div class="ttdeci">static Real Nadam_gamma</div><div class="ttdef"><b>Definition:</b> Parameters.h:69</div></div>
+<div class="ttc" id="structParameters_html_a5c13cf58c0e058aabb32fce5077a25ba"><div class="ttname"><a href="structParameters.html#a5c13cf58c0e058aabb32fce5077a25ba">Parameters::Nadam_beta2</a></div><div class="ttdeci">static Real Nadam_beta2</div><div class="ttdef"><b>Definition:</b> Parameters.h:69</div></div>
+<div class="ttc" id="structParameters_html_a8c6cd65deec4169ae0cdefffcb8e2252"><div class="ttname"><a href="structParameters.html#a8c6cd65deec4169ae0cdefffcb8e2252">Parameters::Adam_beta1</a></div><div class="ttdeci">static Real Adam_beta1</div><div class="ttdef"><b>Definition:</b> Parameters.h:64</div></div>
+<div class="ttc" id="structParameters_html"><div class="ttname"><a href="structParameters.html">Parameters</a></div><div class="ttdoc">Структура, содержащая статические параметры для методов </div><div class="ttdef"><b>Definition:</b> Parameters.h:63</div></div>
+<div class="ttc" id="structParameters_html_accecb0c309434afde3b2ae24e90a5740"><div class="ttname"><a href="structParameters.html#accecb0c309434afde3b2ae24e90a5740">Parameters::RmsProp_beta</a></div><div class="ttdeci">static Real RmsProp_beta</div><div class="ttdef"><b>Definition:</b> Parameters.h:65</div></div>
+<div class="ttc" id="structFlist_html"><div class="ttname"><a href="structFlist.html">Flist</a></div><div class="ttdoc">Структура узла списка функций </div><div class="ttdef"><b>Definition:</b> Lists.h:35</div></div>
+<div class="ttc" id="structParameters_html_ac50274e2816fd25aeee99e23891c5b2e"><div class="ttname"><a href="structParameters.html#ac50274e2816fd25aeee99e23891c5b2e">Parameters::RmsProp_alpha</a></div><div class="ttdeci">static Real RmsProp_alpha</div><div class="ttdef"><b>Definition:</b> Parameters.h:65</div></div>
+<div class="ttc" id="structParameters_html_a16a784f47a8334f61e84429b4397f179"><div class="ttname"><a href="structParameters.html#a16a784f47a8334f61e84429b4397f179">Parameters::Adam_gamma</a></div><div class="ttdeci">static Real Adam_gamma</div><div class="ttdef"><b>Definition:</b> Parameters.h:64</div></div>
+<div class="ttc" id="structMlist_html"><div class="ttname"><a href="structMlist.html">Mlist</a></div><div class="ttdoc">Структура узла списка методов </div><div class="ttdef"><b>Definition:</b> Lists.h:61</div></div>
+<div class="ttc" id="structParameters_html_a56ae3ad51b4610d5e2fa1f9f96db1a78"><div class="ttname"><a href="structParameters.html#a56ae3ad51b4610d5e2fa1f9f96db1a78">Parameters::AMSGrad_beta2</a></div><div class="ttdeci">static Real AMSGrad_beta2</div><div class="ttdef"><b>Definition:</b> Parameters.h:70</div></div>
+<div class="ttc" id="structParameters_html_afd6670c75d952d6e2cdc6e71e197b829"><div class="ttname"><a href="structParameters.html#afd6670c75d952d6e2cdc6e71e197b829">Parameters::AdaMax_gamma</a></div><div class="ttdeci">static Real AdaMax_gamma</div><div class="ttdef"><b>Definition:</b> Parameters.h:67</div></div>
+<div class="ttc" id="structParameters_html_a9fc2748adaa357bf6e4ad14bcd86ade9"><div class="ttname"><a href="structParameters.html#a9fc2748adaa357bf6e4ad14bcd86ade9">Parameters::Adagrad_beta</a></div><div class="ttdeci">static Real Adagrad_beta</div><div class="ttdef"><b>Definition:</b> Parameters.h:66</div></div>
+<div class="ttc" id="structParameters_html_a8f7de16c67faf86be3a0f97987552ced"><div class="ttname"><a href="structParameters.html#a8f7de16c67faf86be3a0f97987552ced">Parameters::AMSGrad_beta1</a></div><div class="ttdeci">static Real AMSGrad_beta1</div><div class="ttdef"><b>Definition:</b> Parameters.h:70</div></div>
+<div class="ttc" id="structParameters_html_a214aefe35044cc9c7782cb9b33dfee2c"><div class="ttname"><a href="structParameters.html#a214aefe35044cc9c7782cb9b33dfee2c">Parameters::Adadelta_beta</a></div><div class="ttdeci">static Real Adadelta_beta</div><div class="ttdef"><b>Definition:</b> Parameters.h:68</div></div>
+<div class="ttc" id="structParameters_html_a2a80a92cc9f7a7748293b1aee8eb44d9"><div class="ttname"><a href="structParameters.html#a2a80a92cc9f7a7748293b1aee8eb44d9">Parameters::Adam_beta2</a></div><div class="ttdeci">static Real Adam_beta2</div><div class="ttdef"><b>Definition:</b> Parameters.h:64</div></div>
+<div class="ttc" id="structParameters_html_ae820275a1b04e2241862fa9141d3fd29"><div class="ttname"><a href="structParameters.html#ae820275a1b04e2241862fa9141d3fd29">Parameters::AdaMax_beta2</a></div><div class="ttdeci">static Real AdaMax_beta2</div><div class="ttdef"><b>Definition:</b> Parameters.h:67</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

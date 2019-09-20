@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>min_by_grad_des: Исходный файл include/Tools/Lists.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">min_by_grad_des
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_434bf685ef10b9139d2d8d07d0dc5138.html">Tools</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Lists.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Functions.h&quot;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Data.h&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Methods/Adam.h&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Methods/RmsProp.h&quot;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Methods/Adagrad.h&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Methods/AdaMax.h&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Methods/Adadelta.h&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;Methods/Nadam.h&quot;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Methods/AMSGrad.h&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structFlist.html">   35</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structFlist.html">Flist</a> {</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structFlist.html#a296174c97f684b938d00d3eeeac18c36">   37</a></span>&#160;  Function <a class="code" href="structFlist.html#a296174c97f684b938d00d3eeeac18c36">f</a>;</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structFlist.html#a597f07bd67e9afba1666dcc0c61dc33f">   38</a></span>&#160;  Vector <a class="code" href="structFlist.html#a597f07bd67e9afba1666dcc0c61dc33f">x_real_min</a>;</div><div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structFlist.html#a781e14b6b3d9b4f0c0c0e23fad2ab45e">   39</a></span>&#160;  Vector <a class="code" href="structFlist.html#a781e14b6b3d9b4f0c0c0e23fad2ab45e">point_on_optimize_params</a>;</div><div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structFlist.html#a2613ea577e8ae831bc9778276d7cf866">   40</a></span>&#160;  vector &lt;Vector&gt; <a class="code" href="structFlist.html#a2613ea577e8ae831bc9778276d7cf866">startPoints</a>;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="structFlist.html">Flist</a> *next;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="structFlist.html">Flist</a> *prev;</div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structFlist.html#a54568e8e2278ecf5c53668a00b9aedc3">   43</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structFlist.html#a54568e8e2278ecf5c53668a00b9aedc3">name</a>;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="structFlist.html">Flist</a>(Function <a class="code" href="structFlist.html#a296174c97f684b938d00d3eeeac18c36">f</a>, Vector <a class="code" href="structFlist.html#a597f07bd67e9afba1666dcc0c61dc33f">x_real_min</a>, Vector <a class="code" href="structFlist.html#a781e14b6b3d9b4f0c0c0e23fad2ab45e">point_on_optimize_params</a>, <a class="code" href="structFlist.html">Flist</a> *prev, <a class="code" href="structFlist.html">Flist</a> *next, <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structFlist.html#a54568e8e2278ecf5c53668a00b9aedc3">name</a> = NULL);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;} <a class="code" href="structFlist.html">FLIST</a>;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structMlist.html">   61</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structMlist.html">Mlist</a> {</div><div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structMlist.html#a0569033e58c295d725966143d61f4aa9">   62</a></span>&#160;  Method <a class="code" href="structMlist.html#a0569033e58c295d725966143d61f4aa9">m</a>;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="structMlist.html">Mlist</a> *next;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="structMlist.html">Mlist</a> *prev;</div><div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structMlist.html#a4e0e04a40166dabf1343872f3466cf7a">   65</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structMlist.html#a4e0e04a40166dabf1343872f3466cf7a">name</a>;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="structMlist.html">Mlist</a>(Method <a class="code" href="structMlist.html#a0569033e58c295d725966143d61f4aa9">m</a>, <a class="code" href="structMlist.html">Mlist</a> *prev, <a class="code" href="structMlist.html">Mlist</a> *next, <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structMlist.html#a4e0e04a40166dabf1343872f3466cf7a">name</a> = NULL);</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <a class="code" href="structMlist.html">MLIST</a>;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">typedef</span> <a class="code" href="structMlist.html">MLIST</a> *<a class="code" href="structMlist.html">MLISTPTR</a>;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">typedef</span> <a class="code" href="structFlist.html">FLIST</a> *<a class="code" href="structFlist.html">FLISTPTR</a>;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">void</span> fl_push(<a class="code" href="structFlist.html">FLISTPTR</a> &amp;head,</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  Function f,</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  Vector x_real_min,</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  Vector start_point,</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span> *name = NULL</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;);</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordtype">void</span> ml_push(<a class="code" href="structMlist.html">MLISTPTR</a> &amp;head,</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  Method m,</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span> *name = NULL</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;);</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<a class="code" href="structFlist.html">FLISTPTR</a> createFullFlist();</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<a class="code" href="structMlist.html">MLISTPTR</a> createOurMlist();</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">void</span> genDots(<a class="code" href="structFlist.html">FLISTPTR</a> testFunctionList);</div><div class="ttc" id="structMlist_html_a4e0e04a40166dabf1343872f3466cf7a"><div class="ttname"><a href="structMlist.html#a4e0e04a40166dabf1343872f3466cf7a">Mlist::name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> Lists.h:65</div></div>
+<div class="ttc" id="structFlist_html_a597f07bd67e9afba1666dcc0c61dc33f"><div class="ttname"><a href="structFlist.html#a597f07bd67e9afba1666dcc0c61dc33f">Flist::x_real_min</a></div><div class="ttdeci">Vector x_real_min</div><div class="ttdef"><b>Definition:</b> Lists.h:38</div></div>
+<div class="ttc" id="structFlist_html_a54568e8e2278ecf5c53668a00b9aedc3"><div class="ttname"><a href="structFlist.html#a54568e8e2278ecf5c53668a00b9aedc3">Flist::name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> Lists.h:43</div></div>
+<div class="ttc" id="structFlist_html"><div class="ttname"><a href="structFlist.html">Flist</a></div><div class="ttdoc">Структура узла списка функций </div><div class="ttdef"><b>Definition:</b> Lists.h:35</div></div>
+<div class="ttc" id="structFlist_html_a2613ea577e8ae831bc9778276d7cf866"><div class="ttname"><a href="structFlist.html#a2613ea577e8ae831bc9778276d7cf866">Flist::startPoints</a></div><div class="ttdeci">vector&lt; Vector &gt; startPoints</div><div class="ttdef"><b>Definition:</b> Lists.h:40</div></div>
+<div class="ttc" id="structMlist_html_a0569033e58c295d725966143d61f4aa9"><div class="ttname"><a href="structMlist.html#a0569033e58c295d725966143d61f4aa9">Mlist::m</a></div><div class="ttdeci">Method m</div><div class="ttdef"><b>Definition:</b> Lists.h:62</div></div>
+<div class="ttc" id="structMlist_html"><div class="ttname"><a href="structMlist.html">Mlist</a></div><div class="ttdoc">Структура узла списка методов </div><div class="ttdef"><b>Definition:</b> Lists.h:61</div></div>
+<div class="ttc" id="structFlist_html_a781e14b6b3d9b4f0c0c0e23fad2ab45e"><div class="ttname"><a href="structFlist.html#a781e14b6b3d9b4f0c0c0e23fad2ab45e">Flist::point_on_optimize_params</a></div><div class="ttdeci">Vector point_on_optimize_params</div><div class="ttdef"><b>Definition:</b> Lists.h:39</div></div>
+<div class="ttc" id="structFlist_html_a296174c97f684b938d00d3eeeac18c36"><div class="ttname"><a href="structFlist.html#a296174c97f684b938d00d3eeeac18c36">Flist::f</a></div><div class="ttdeci">Function f</div><div class="ttdef"><b>Definition:</b> Lists.h:37</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

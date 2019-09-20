@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>min_by_grad_des: Структура Parameters</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">min_by_grad_des
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#pub-static-attribs">Статические открытые данные</a> &#124;
+<a href="structParameters-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Структура Parameters</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Структура, содержащая статические параметры для методов  
+ <a href="structParameters.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Parameters_8h_source.html">Parameters.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a368bf1936a6e30fcf0f1b5a4684e9ed5"><td class="memItemLeft" align="right" valign="top"><a id="a368bf1936a6e30fcf0f1b5a4684e9ed5"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>updParams</b> (Method method, Vector params)</td></tr>
+<tr class="separator:a368bf1936a6e30fcf0f1b5a4684e9ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a746b5af69e00ca8a658fe534d3bdad1a"><td class="memItemLeft" align="right" valign="top"><a id="a746b5af69e00ca8a658fe534d3bdad1a"></a>
+static Vector&#160;</td><td class="memItemRight" valign="bottom"><b>getParams</b> (Method method)</td></tr>
+<tr class="separator:a746b5af69e00ca8a658fe534d3bdad1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b012cce011dd93644b07eb4282771cb"><td class="memItemLeft" align="right" valign="top"><a id="a2b012cce011dd93644b07eb4282771cb"></a>
+static Vector&#160;</td><td class="memItemRight" valign="bottom"><b>nGrad</b> (Method method, Vector &amp;params, <a class="el" href="structFlist.html">FLISTPTR</a> head, Real nGrad_accuracy, Real grad_accuracy, int iter_lim)</td></tr>
+<tr class="separator:a2b012cce011dd93644b07eb4282771cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea4455260843154032a3550831822792"><td class="memItemLeft" align="right" valign="top"><a id="aea4455260843154032a3550831822792"></a>
+static Real&#160;</td><td class="memItemRight" valign="bottom"><b>sNorm</b> (Method method, <a class="el" href="structFlist.html">FLISTPTR</a> head, Real grad_accuracy, int iter_lim)</td></tr>
+<tr class="separator:aea4455260843154032a3550831822792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2f181a1edb235cf869cb2b0b67c1093"><td class="memItemLeft" align="right" valign="top"><a id="aa2f181a1edb235cf869cb2b0b67c1093"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>checkParams</b> (Vector &amp;params)</td></tr>
+<tr class="separator:aa2f181a1edb235cf869cb2b0b67c1093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7975677ffd93e4c0022582c2805b80e3"><td class="memItemLeft" align="right" valign="top"><a id="a7975677ffd93e4c0022582c2805b80e3"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>calcParams</b> (<a class="el" href="structFlist.html">FLISTPTR</a> fhead, <a class="el" href="structMlist.html">MLISTPTR</a> mhead, Real nGrad_accuracy, Real grad_accuracy, int iter_limit, int method_iter_limit, Real stop_condition)</td></tr>
+<tr class="separator:a7975677ffd93e4c0022582c2805b80e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Статические открытые данные</h2></td></tr>
+<tr class="memitem:a8c6cd65deec4169ae0cdefffcb8e2252"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a8c6cd65deec4169ae0cdefffcb8e2252">Adam_beta1</a></td></tr>
+<tr class="separator:a8c6cd65deec4169ae0cdefffcb8e2252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a80a92cc9f7a7748293b1aee8eb44d9"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a2a80a92cc9f7a7748293b1aee8eb44d9">Adam_beta2</a></td></tr>
+<tr class="separator:a2a80a92cc9f7a7748293b1aee8eb44d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a784f47a8334f61e84429b4397f179"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a16a784f47a8334f61e84429b4397f179">Adam_gamma</a></td></tr>
+<tr class="separator:a16a784f47a8334f61e84429b4397f179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accecb0c309434afde3b2ae24e90a5740"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#accecb0c309434afde3b2ae24e90a5740">RmsProp_beta</a></td></tr>
+<tr class="separator:accecb0c309434afde3b2ae24e90a5740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac50274e2816fd25aeee99e23891c5b2e"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#ac50274e2816fd25aeee99e23891c5b2e">RmsProp_alpha</a></td></tr>
+<tr class="separator:ac50274e2816fd25aeee99e23891c5b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc2748adaa357bf6e4ad14bcd86ade9"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a9fc2748adaa357bf6e4ad14bcd86ade9">Adagrad_beta</a></td></tr>
+<tr class="separator:a9fc2748adaa357bf6e4ad14bcd86ade9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6933336b29f335b8ac36a4911abda94b"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a6933336b29f335b8ac36a4911abda94b">AdaMax_beta1</a></td></tr>
+<tr class="separator:a6933336b29f335b8ac36a4911abda94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae820275a1b04e2241862fa9141d3fd29"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#ae820275a1b04e2241862fa9141d3fd29">AdaMax_beta2</a></td></tr>
+<tr class="separator:ae820275a1b04e2241862fa9141d3fd29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd6670c75d952d6e2cdc6e71e197b829"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#afd6670c75d952d6e2cdc6e71e197b829">AdaMax_gamma</a></td></tr>
+<tr class="separator:afd6670c75d952d6e2cdc6e71e197b829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a214aefe35044cc9c7782cb9b33dfee2c"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a214aefe35044cc9c7782cb9b33dfee2c">Adadelta_beta</a></td></tr>
+<tr class="separator:a214aefe35044cc9c7782cb9b33dfee2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a284908bd2b8c0870ed3d8b91e9b36ce1"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a284908bd2b8c0870ed3d8b91e9b36ce1">Nadam_beta1</a></td></tr>
+<tr class="separator:a284908bd2b8c0870ed3d8b91e9b36ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c13cf58c0e058aabb32fce5077a25ba"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a5c13cf58c0e058aabb32fce5077a25ba">Nadam_beta2</a></td></tr>
+<tr class="separator:a5c13cf58c0e058aabb32fce5077a25ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5423a84040552a929659b92fbc2a24a9"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a5423a84040552a929659b92fbc2a24a9">Nadam_gamma</a></td></tr>
+<tr class="separator:a5423a84040552a929659b92fbc2a24a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f7de16c67faf86be3a0f97987552ced"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a8f7de16c67faf86be3a0f97987552ced">AMSGrad_beta1</a></td></tr>
+<tr class="separator:a8f7de16c67faf86be3a0f97987552ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56ae3ad51b4610d5e2fa1f9f96db1a78"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a56ae3ad51b4610d5e2fa1f9f96db1a78">AMSGrad_beta2</a></td></tr>
+<tr class="separator:a56ae3ad51b4610d5e2fa1f9f96db1a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d974fd144aa816e6d93a1c8cc666cbc"><td class="memItemLeft" align="right" valign="top">static Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters.html#a7d974fd144aa816e6d93a1c8cc666cbc">AMSGrad_gamma</a></td></tr>
+<tr class="separator:a7d974fd144aa816e6d93a1c8cc666cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Структура, содержащая статические параметры для методов </p>
+<p><a href="https://3dbabove.com/2017/11/14/optimizationalgorithms/">https://3dbabove.com/2017/11/14/optimizationalgorithms/</a> </p>
+</div><h2 class="groupheader">Данные класса</h2>
+<a id="a214aefe35044cc9c7782cb9b33dfee2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a214aefe35044cc9c7782cb9b33dfee2c">&#9670;&nbsp;</a></span>Adadelta_beta</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::Adadelta_beta</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения второго момента в выражении v = (1 - beta) * gd, где gd - покомпонентный квадрат градиента; v - момент второго порядка </p>
+
+</div>
+</div>
+<a id="a9fc2748adaa357bf6e4ad14bcd86ade9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fc2748adaa357bf6e4ad14bcd86ade9">&#9670;&nbsp;</a></span>Adagrad_beta</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::Adagrad_beta</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Шаг обучения </p>
+
+</div>
+</div>
+<a id="a8c6cd65deec4169ae0cdefffcb8e2252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c6cd65deec4169ae0cdefffcb8e2252">&#9670;&nbsp;</a></span>Adam_beta1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::Adam_beta1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения первого момента в выражении m = (1 - beta1) * g, где g - градиент; m - момент </p>
+
+</div>
+</div>
+<a id="a2a80a92cc9f7a7748293b1aee8eb44d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a80a92cc9f7a7748293b1aee8eb44d9">&#9670;&nbsp;</a></span>Adam_beta2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::Adam_beta2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения второго момента в выражении v = (1 - beta2) * gd, где gd - покомпонентный квадрат градиента; v - момент второго порядка </p>
+
+</div>
+</div>
+<a id="a16a784f47a8334f61e84429b4397f179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a784f47a8334f61e84429b4397f179">&#9670;&nbsp;</a></span>Adam_gamma</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::Adam_gamma</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Шаг обучения </p>
+
+</div>
+</div>
+<a id="a6933336b29f335b8ac36a4911abda94b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6933336b29f335b8ac36a4911abda94b">&#9670;&nbsp;</a></span>AdaMax_beta1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::AdaMax_beta1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения первого момента в выражении m = (1 - beta1) * g, где g - градиент; m - момент </p>
+
+</div>
+</div>
+<a id="ae820275a1b04e2241862fa9141d3fd29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae820275a1b04e2241862fa9141d3fd29">&#9670;&nbsp;</a></span>AdaMax_beta2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::AdaMax_beta2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения нормы Lp градиента при p стремящимся к бесконечности; v - норма градиента </p>
+
+</div>
+</div>
+<a id="afd6670c75d952d6e2cdc6e71e197b829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd6670c75d952d6e2cdc6e71e197b829">&#9670;&nbsp;</a></span>AdaMax_gamma</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::AdaMax_gamma</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Шаг обучения </p>
+
+</div>
+</div>
+<a id="a8f7de16c67faf86be3a0f97987552ced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f7de16c67faf86be3a0f97987552ced">&#9670;&nbsp;</a></span>AMSGrad_beta1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::AMSGrad_beta1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения первого момента в выражении m = (1 - beta1) * g, где g - градиент; m - момент </p>
+
+</div>
+</div>
+<a id="a56ae3ad51b4610d5e2fa1f9f96db1a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56ae3ad51b4610d5e2fa1f9f96db1a78">&#9670;&nbsp;</a></span>AMSGrad_beta2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::AMSGrad_beta2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения второго момента в выражении v = (1 - beta2) * gd, где gd - покомпонентный квадрат градиента; v - момент второго порядка </p>
+
+</div>
+</div>
+<a id="a7d974fd144aa816e6d93a1c8cc666cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d974fd144aa816e6d93a1c8cc666cbc">&#9670;&nbsp;</a></span>AMSGrad_gamma</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::AMSGrad_gamma</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Шаг обучения </p>
+
+</div>
+</div>
+<a id="a284908bd2b8c0870ed3d8b91e9b36ce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a284908bd2b8c0870ed3d8b91e9b36ce1">&#9670;&nbsp;</a></span>Nadam_beta1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::Nadam_beta1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения первого момента в выражении m = (1 - beta1) * g, где g - градиент; m - момент </p>
+
+</div>
+</div>
+<a id="a5c13cf58c0e058aabb32fce5077a25ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c13cf58c0e058aabb32fce5077a25ba">&#9670;&nbsp;</a></span>Nadam_beta2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::Nadam_beta2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения второго момента в выражении v = (1 - beta2) * gd, где gd - покомпонентный квадрат градиента; v - момент второго порядка </p>
+
+</div>
+</div>
+<a id="a5423a84040552a929659b92fbc2a24a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5423a84040552a929659b92fbc2a24a9">&#9670;&nbsp;</a></span>Nadam_gamma</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::Nadam_gamma</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Шаг обучения </p>
+
+</div>
+</div>
+<a id="ac50274e2816fd25aeee99e23891c5b2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50274e2816fd25aeee99e23891c5b2e">&#9670;&nbsp;</a></span>RmsProp_alpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::RmsProp_alpha</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Шаг обучения </p>
+
+</div>
+</div>
+<a id="accecb0c309434afde3b2ae24e90a5740"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accecb0c309434afde3b2ae24e90a5740">&#9670;&nbsp;</a></span>RmsProp_beta</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real Parameters::RmsProp_beta</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Параметр сохранения второго момента в выражении v = (1 - beta2) * gd, где gd - покомпонентный квадрат градиента; v - момент второго порядка </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов структур находятся в файлах:<ul>
+<li>include/Tools/<a class="el" href="Parameters_8h_source.html">Parameters.h</a></li>
+<li>src/Tools/ConfigActions.cpp</li>
+<li>src/Tools/Parameters.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

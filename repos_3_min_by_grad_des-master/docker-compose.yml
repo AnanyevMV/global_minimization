@@ -1,0 +1,10 @@
+version: '2'
+services:
+  cmake_project:
+    container_name: cmake_project
+    build:
+      context: ./project
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./project/workdir:/workdir
+    command: /bin/sh -c "while true; do echo faking deamon; sleep 60; done"
