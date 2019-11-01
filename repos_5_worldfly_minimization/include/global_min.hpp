@@ -15,6 +15,11 @@
 #include <thread>
 #include <mutex>
 
+// Имитация результата работы tms-ников. n - количество точек, numOfDimension - размерность
+// Результат - это файл "tms-result-imitation.txt"
+// Если вызвать функцию снова, то новые данные добавятся в конец
+void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension);
+
 // Первый этап: вычисление значений функции в точках сетки:
 // Автор: Козырев Дмитрий
 std::vector<std::pair<Real, Vector>>

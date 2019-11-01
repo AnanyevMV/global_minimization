@@ -75,6 +75,9 @@ Vector grad(Function f, const Vector& point, const Real h = 1e-4);
 // в точке x с шагом h и погрешностью O(h)
 Matrix hess(Function f, const Vector& x, const Real h = 1e-4);
 
+// Равномерное распределение на отрезке [a,b)
+Real uniform(Real a, Real b);
+
 
 template<class T>
 inline const T SIGN(const T &a, const T &b)
