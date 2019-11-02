@@ -189,25 +189,17 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
 
     return answer;
 }
-
+// tms-сети возвращают нам вектора, компоненты которых принадлежат [0,1)
 void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension){
-	std::vector<Vector> vect(n);
-	for (unsigned int i = 0; i < n; i++){
-		vect[i] = Vector(numOfDimension);
-		for (unsigned int j = 0; j < numOfDimension; j++){
-			vect[i][j] = uniform(-100,100);
-		}
-	}
 	std::ofstream output_file;
 	output_file.open("tms-result-imitation.txt",std::ios::app);
 	for (unsigned int i = 0; i < n; i++){
 			for (unsigned int j = 0; j < numOfDimension; j++){
 				if (j != numOfDimension -1){
-					output_file << vect[i][j] << " ";
+					output_file << uniform(0,1) << " ";
 				} else {
-					output_file << vect[i][j];
+					output_file << uniform(0,1);
 				}
-
 			}
 			if (i != n-1){
 				output_file << std::endl;
