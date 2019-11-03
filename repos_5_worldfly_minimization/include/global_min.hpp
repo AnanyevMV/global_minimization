@@ -34,3 +34,20 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition, co
 // Автор: Козырев Дмитрий
 std::vector<std::pair<Real, Vector>>
 find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, Vector min, Vector max);
+
+void* add_points_to_queue(void *args);
+
+void my_calc_f_with_threads(std::queue<Vector>, std::set<std::pair<Real, Vector>>);
+
+struct providerArgs{
+	std::queue<Vector> &queueOfPoints;
+	std::set<std::pair<Real, Vector>> &candidates;
+	pthread_mutex_t &queueMutex;
+	pthread_cond_t &queueCondAddMore;
+	pthread_cond_t &queueCondEndOfFile;
+	Vector &min;
+	Vector &max;
+};
+
+void
+my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, Vector min, Vector max);
