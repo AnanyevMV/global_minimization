@@ -326,7 +326,7 @@ void* add_points_to_queue(void *args){
 
 				// МУВАЕМ ОСТАВШИЕСЯ ЭЛЕМЕНТЫ В ОЧЕРЕДЬ ЕСЛИ ЕСТЬ. Я ЗА МУВЫ НЕ ШАРЮ СЕРЕЖА
 
-				pthread_mutex_unock(&ptr_producer_args->queueMutex);
+				pthread_mutex_unlock(&ptr_producer_args->queueMutex);
 				break;
 			}
 		}
