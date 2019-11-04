@@ -214,19 +214,18 @@ void my_calc_f_with_threads(std::queue<Vector> &queueOfPoints, std::set<std::pai
 
 // Функция для треда-поставщика
 void* add_points_to_queue(void *args){
-	providerArgs *ptr = (providerArgs *)args;
-	providerArgs provider_args = *ptr;
+	producerArgs *ptr = (producerArgs *)args;
+	producerArgs provider_args = *ptr;
 	// Открываем файл
 	std::ifstream file;
 	file.open("tms-result-imitation.txt");
-	bool eof = false;
 	std::string str;
 
-	while (!eof){
+	while (!provider_args.eof){
 		if (std::getline(file, str)) {
 			std::cout << str << "\n";
 		} else {
-			eof = true;
+			provider_args.eof = true;
 		}
 	}
 	file.close();
@@ -259,7 +258,8 @@ my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, ui
 
 	pthread_t provider;
 	std::queue<Vector> queueOfPoints;
-	providerArgs provider_args{queueOfPoints, candidates, queueMutex, queueCondAddMore, queueCondEndOfFile, min, max};
+	volatile bool eof = false;
+	producerArgs provider_args{queueOfPoints, candidates, queueMutex, queueCondAddMore, queueCondEndOfFile, min, max,eof};
 	pthread_create(&provider, NULL, &add_points_to_queue, (void*)&provider_args);
 
 //	// ----- Первый этап: вычисление значений функции в узлах сетки с отбором точек-кандидатов -----

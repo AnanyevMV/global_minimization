@@ -39,7 +39,7 @@ void* add_points_to_queue(void *args);
 
 void my_calc_f_with_threads(std::queue<Vector>, std::set<std::pair<Real, Vector>>);
 
-struct providerArgs{
+struct producerArgs{
 	std::queue<Vector> &queueOfPoints;
 	std::set<std::pair<Real, Vector>> &candidates;
 	pthread_mutex_t &queueMutex;
@@ -47,6 +47,16 @@ struct providerArgs{
 	pthread_cond_t &queueCondEndOfFile;
 	Vector &min;
 	Vector &max;
+	volatile bool &eof;
+};
+
+struct consumerArgs{
+	std::queue<Vector> &queueOfPoints;
+	std::set<std::pair<Real, Vector>> &candidates;
+	pthread_mutex_t &queueMutex;
+	pthread_cond_t &queueCondAddMore;
+	pthread_cond_t &queueCondEndOfFile;
+	volatile bool &eof;
 };
 
 void
