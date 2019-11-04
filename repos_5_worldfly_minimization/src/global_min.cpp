@@ -1,8 +1,10 @@
 #include "global_min.hpp"
 
 #include <array>
+
 #include "thread_pool.h"
 
+/*
 std::vector<std::pair<Real, Vector>>
 calc_f_with_threads(Function f, const std::vector<Vector>& inData)
 {
@@ -59,11 +61,11 @@ calc_f_with_threads(Function f, const std::vector<Vector>& inData)
 
     return outData;
 }
+*/
 
 std::vector<std::pair<Real, Vector>>
 find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
-                             const std::vector<std::pair<Real, Vector>>& inData)
-{
+                             const std::vector<std::pair<Real, Vector>>& inData) {
     // Создаем вектор под ответ
     std::vector<std::pair<Real, Vector>> outData(inData.size());
 
@@ -116,11 +118,12 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
     return outData;
 }
 
+
 std::vector<std::pair<Real, Vector>>
 find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints,
             Vector min, Vector max)
 {
-    // Несколько проверок на входные данные:
+    /*// Несколько проверок на входные данные:
     assert(dim > 0u && dim == min.size() && dim == max.size());
     assert(nBestPoints <= nAllPoints && nBestPoints > 0u);
     for (uint32_t i = 0; i < dim; ++i)
@@ -186,13 +189,14 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
 
     // Итоговая сортировка всех найденных точек по неубыванию значения функции в них:
     std::sort(answer.begin(), answer.end());
-
-    return answer;
+    
+    return answer;*/
+    return {};
 }
 // tms-сети возвращают нам вектора, компоненты которых принадлежат [0,1)
 void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension){
 	std::ofstream output_file;
-	output_file.open("tms-result-imitation.txt",std::ios::app);
+	output_file.open("tms-result-imitation.txt", std::ios::app);
 	for (unsigned int i = 0; i < n; i++){
 			for (unsigned int j = 0; j < numOfDimension; j++){
 				if (j != numOfDimension -1){
@@ -208,8 +212,49 @@ void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension){
 	output_file.close();
 }
 
-void my_calc_f_with_threads(std::queue<Vector> &queueOfPoints, std::set<std::pair<Real, Vector>> &candidates){
+// Поток потребитель
+void my_calc_f_with_threads(void* args) {
+    consumerArgs* consArg = static_cast<consumerArgs*>(args);
 
+    while (true) {
+        pthread_mutex_lock(&consArg->queueMutex);
+
+        // Ждем пока появятся элементы в очереди
+        while (consArg->queueOfPoints.empty()) {
+            pthread_cond_wait(&consArg->canConsume, &consArg->queueMutex);
+
+            // Если элементов больше не будет, то завершаем работу
+            if (consArg->eof) {
+                pthread_mutex_unlock(&consArg->queueMutex);
+
+                pthread_exit(nullptr);
+                return;
+            }
+        }
+
+        // Берем элемент из очереди
+        Vector point = consArg->queueOfPoints.front();
+        consArg->queueOfPoints.pop();
+
+        // Если остается мало элементов, сигналим поставщику
+        if (consArg->queueOfPoints.size() < 10)
+            pthread_cond_signal(&consArg->canProduce);
+
+        pthread_mutex_unlock(&consArg->queueMutex);
+
+        // Выполняем функцию
+        auto res = consArg->f(point);
+
+        // Сохраняем результат
+
+        pthread_mutex_lock(&consArg->writeMutex);
+
+        consArg->candidates.emplace(res, point);
+
+        pthread_mutex_unlock(&consArg->writeMutex);
+    }
+
+    pthread_exit(nullptr);
 }
 
 // Функция для треда-поставщика
@@ -231,8 +276,6 @@ void* add_points_to_queue(void *args){
 	file.close();
 	return nullptr;
 }
-
-
 
 void
 my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, Vector min, Vector max) {
@@ -259,8 +302,8 @@ my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, ui
 	pthread_t provider;
 	std::queue<Vector> queueOfPoints;
 	volatile bool eof = false;
-	producerArgs provider_args{queueOfPoints, candidates, queueMutex, queueCondAddMore, queueCondEndOfFile, min, max,eof};
-	pthread_create(&provider, NULL, &add_points_to_queue, (void*)&provider_args);
+	producerArgs provider_args{queueOfPoints, candidates, queueMutex, queueCondAddMore, queueCondEndOfFile, min, max, eof};
+	pthread_create(&provider, nullptr, &add_points_to_queue, (void*)&provider_args);
 
 //	// ----- Первый этап: вычисление значений функции в узлах сетки с отбором точек-кандидатов -----
 //

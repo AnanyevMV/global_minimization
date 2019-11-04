@@ -12,8 +12,9 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <queue>
 #include <thread>
-#include <mutex>
+#include <pthread.h>
 
 // Имитация результата работы tms-ников. n - количество точек, numOfDimension - размерность
 // Результат - это файл "tms-result-imitation.txt"
@@ -22,8 +23,8 @@ void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension);
 
 // Первый этап: вычисление значений функции в точках сетки:
 // Автор: Козырев Дмитрий
-std::vector<std::pair<Real, Vector>>
-calc_f_with_threads(Function f, const std::vector<Vector> & inData);
+//std::vector<std::pair<Real, Vector>>
+//calc_f_with_threads(Function f, const std::vector<Vector> & inData);
 
 // Второй этап: запуск методов локальной минимизации в попытках улучшить результат: 
 // Автор: Козырев Дмитрий
@@ -37,7 +38,7 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
 
 void* add_points_to_queue(void *args);
 
-void my_calc_f_with_threads(std::queue<Vector>, std::set<std::pair<Real, Vector>>);
+void my_calc_f_with_threads(void* args);
 
 struct producerArgs{
 	std::queue<Vector> &queueOfPoints;
@@ -51,11 +52,13 @@ struct producerArgs{
 };
 
 struct consumerArgs{
+    Function f;
 	std::queue<Vector> &queueOfPoints;
 	std::set<std::pair<Real, Vector>> &candidates;
 	pthread_mutex_t &queueMutex;
-	pthread_cond_t &queueCondAddMore;
-	pthread_cond_t &queueCondEndOfFile;
+	pthread_mutex_t &writeMutex;
+	pthread_cond_t &canProduce;
+	pthread_cond_t &canConsume;
 	volatile bool &eof;
 };
 
