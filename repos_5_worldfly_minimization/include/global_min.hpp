@@ -38,7 +38,7 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
 
 void* add_points_to_queue(void *args);
 
-void my_calc_f_with_threads(void* args);
+void* my_calc_f_with_threads(void* args);
 
 struct producerArgs{
 	std::queue<Vector> &queueOfPoints;

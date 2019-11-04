@@ -213,22 +213,27 @@ void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension){
 }
 
 // Поток потребитель
-void my_calc_f_with_threads(void* args) {
+void* my_calc_f_with_threads(void* args) {
     consumerArgs* consArg = static_cast<consumerArgs*>(args);
 
     while (true) {
         pthread_mutex_lock(&consArg->queueMutex);
 
+        // Если элементов больше не будет, то завершаем работу
+        if (consArg->eof && consArg->queueOfPoints.empty()) {
+            pthread_mutex_unlock(&consArg->queueMutex);
+            break;
+        }
+
         // Ждем пока появятся элементы в очереди
         while (consArg->queueOfPoints.empty()) {
             pthread_cond_wait(&consArg->canConsume, &consArg->queueMutex);
 
-            // Если элементов больше не будет, то завершаем работу
-            if (consArg->eof) {
+            // Снова проверяем, будут ли еще элементы
+            if (consArg->eof && consArg->queueOfPoints.empty()) {
                 pthread_mutex_unlock(&consArg->queueMutex);
-
                 pthread_exit(nullptr);
-                return;
+                return nullptr;
             }
         }
 
@@ -255,6 +260,8 @@ void my_calc_f_with_threads(void* args) {
     }
 
     pthread_exit(nullptr);
+
+    return nullptr;
 }
 
 // Функция для треда-поставщика
