@@ -54,6 +54,7 @@ struct consumerArgs{
     Function f;
 	std::queue<Vector> &queueOfPoints;
 	std::set<std::pair<Real, Vector>> &candidates;
+	uint32_t &nBestPoints;
 	pthread_mutex_t &queueMutex;
 	pthread_mutex_t &writeMutex;
 	pthread_cond_t &canProduce;

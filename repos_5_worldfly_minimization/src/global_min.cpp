@@ -254,8 +254,10 @@ void* my_calc_f_with_threads(void* args) {
 
         pthread_mutex_lock(&consArg->writeMutex);
 
-
         consArg->candidates.emplace(res, point);
+        if (consArg->candidates.size() > consArg->nBestPoints){
+        	consArg->candidates.erase(std::prev(consArg->candidates.end()));
+        }
 
         pthread_mutex_unlock(&consArg->writeMutex);
     }
