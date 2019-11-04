@@ -42,10 +42,9 @@ void* my_calc_f_with_threads(void* args);
 
 struct producerArgs{
 	std::queue<Vector> &queueOfPoints;
-	std::set<std::pair<Real, Vector>> &candidates;
 	pthread_mutex_t &queueMutex;
-	pthread_cond_t &queueCondAddMore;
-	pthread_cond_t &queueCondEndOfFile;
+	pthread_cond_t &canProduce;
+	pthread_cond_t &canConsume;
 	Vector &min;
 	Vector &max;
 	volatile bool &eof;
@@ -64,3 +63,4 @@ struct consumerArgs{
 
 void
 my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, Vector min, Vector max);
+

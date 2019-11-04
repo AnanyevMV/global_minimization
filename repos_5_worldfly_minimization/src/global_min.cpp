@@ -224,6 +224,9 @@ void* my_calc_f_with_threads(void* args) {
             pthread_mutex_unlock(&consArg->queueMutex);
             break;
         }
+        // Если остается мало элементов, сигналим поставщику
+        if (consArg->queueOfPoints.size() < 256)
+            pthread_cond_signal(&consArg->canProduce);
 
         // Ждем пока появятся элементы в очереди
         while (consArg->queueOfPoints.empty()) {
@@ -241,9 +244,6 @@ void* my_calc_f_with_threads(void* args) {
         Vector point = consArg->queueOfPoints.front();
         consArg->queueOfPoints.pop();
 
-        // Если остается мало элементов, сигналим поставщику
-        if (consArg->queueOfPoints.size() < 10)
-            pthread_cond_signal(&consArg->canProduce);
 
         pthread_mutex_unlock(&consArg->queueMutex);
 
@@ -253,6 +253,7 @@ void* my_calc_f_with_threads(void* args) {
         // Сохраняем результат
 
         pthread_mutex_lock(&consArg->writeMutex);
+
 
         consArg->candidates.emplace(res, point);
 
@@ -266,19 +267,68 @@ void* my_calc_f_with_threads(void* args) {
 
 // Функция для треда-поставщика
 void* add_points_to_queue(void *args){
-	producerArgs *ptr = (producerArgs *)args;
-	producerArgs provider_args = *ptr;
+	producerArgs *ptr_producer_args = (producerArgs *)args;
+	std::queue<Vector> tmpQueue;
+
+	// Размер нашей очереди
+	unsigned int tmpQueueSize = 2048;
+	bool exit = false;
 	// Открываем файл
 	std::ifstream file;
 	file.open("tms-result-imitation.txt");
 	std::string str;
+	while (!exit){
+		// счётчик количества элементов
+		unsigned int count = 0;
+		while (true){
+			// Если строка еще есть
+			if (std::getline(file, str)) {
+				// Сплитим строку по пробелам, получаем вектор строк results
+				std::istringstream iss(str);
+				std::vector<std::string> results((std::istream_iterator<std::string>(iss)),
+				std::istream_iterator<std::string>());
+				Vector v(results.size());
+				for (unsigned int i = 0; i < results.size(); i++){
+					// std::stold приводит строку к long double
+					// Приводим точку на единичном s-мерном кубе к точке в s-мерном прямоугольном параллелепипеде
+					v[i] = std::stold(results[i]) * (ptr_producer_args->max[i] - ptr_producer_args->min[i]) + ptr_producer_args->min[i];
+				}
+				tmpQueue.emplace(v);
+				count++;
 
-	while (!provider_args.eof){
-		if (std::getline(file, str)) {
-			std::cout << str << "\n";
-		} else {
-			provider_args.eof = true;
+				if (count >= tmpQueueSize){
+					// Захватываем мьютекс
+					pthread_mutex_lock(&ptr_producer_args->queueMutex);
+					// Ждём когда нам посигналят треды-потребители добавить еще элементов
+					// При вызове wait мьютекс освободится, после ожидания снова захватится, когда ему посигналят
+					pthread_cond_wait(&ptr_producer_args->canProduce, &ptr_producer_args->queueMutex);
+
+					// ВОЛШЕБНАЯ ОПЕРАЦИЯ MOVE СЕРЕЖА НАПИШИ ЕЕ САМ ПЛЕС Я ЗА НЕЕ НЕ ШАРЮ
+
+					// Сигналим тредам-потребителям, что в очереди появились элементы
+					//
+					pthread_cond_broadcast(&ptr_producer_args->canConsume);
+
+					count = 0;
+
+					break;
+
+				}
+
+			} else {
+				// Выход из цикла, элементов больше не будет
+				exit = true;
+				// Захватываем мьютекс, чтоб сообщить тредам-потребителям что файл кончился
+				pthread_mutex_lock(&ptr_producer_args->queueMutex);
+				ptr_producer_args->eof = true;
+
+				// МУВАЕМ ОСТАВШИЕСЯ ЭЛЕМЕНТЫ В ОЧЕРЕДЬ ЕСЛИ ЕСТЬ. Я ЗА МУВЫ НЕ ШАРЮ СЕРЕЖА
+
+				pthread_mutex_unock(&ptr_producer_args->queueMutex);
+				break;
+			}
 		}
+
 	}
 	file.close();
 	return nullptr;
@@ -309,7 +359,7 @@ my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, ui
 	pthread_t provider;
 	std::queue<Vector> queueOfPoints;
 	volatile bool eof = false;
-	producerArgs provider_args{queueOfPoints, candidates, queueMutex, queueCondAddMore, queueCondEndOfFile, min, max, eof};
+	producerArgs provider_args{queueOfPoints, queueMutex, queueCondAddMore, queueCondEndOfFile, min, max, eof};
 	pthread_create(&provider, nullptr, &add_points_to_queue, (void*)&provider_args);
 
 //	// ----- Первый этап: вычисление значений функции в узлах сетки с отбором точек-кандидатов -----
