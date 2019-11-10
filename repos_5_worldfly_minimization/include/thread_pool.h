@@ -4,8 +4,7 @@
 #include <functional>
 #include <pthread.h>
 
-class ThreadPool
-{
+class ThreadPool {
 public:
     explicit ThreadPool(size_t);
 

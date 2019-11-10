@@ -36,32 +36,41 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition, co
 std::vector<std::pair<Real, Vector>>
 find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, Vector min, Vector max);
 
-void* add_points_to_queue(void *args);
+void* add_points_to_queue(void* args);
 
 void* my_calc_f_with_threads(void* args);
 
-struct producerArgs{
-	std::queue<Vector> &queueOfPoints;
-	pthread_mutex_t &queueMutex;
-	pthread_cond_t &canProduce;
-	pthread_cond_t &canConsume;
-	Vector &min;
-	Vector &max;
-	volatile bool &eof;
+struct producerArgs {
+    // Shared variables
+    std::queue<Vector>& readQueue;
+    std::queue<Vector>& writeQueue;
+    pthread_mutex_t& consumerMutex;
+    pthread_mutex_t& producerMutex;
+    pthread_cond_t& canProduce;
+    pthread_cond_t& canConsume;
+    bool& eof;
+
+    // Own variables
+    Vector min;
+    Vector max;
 };
 
-struct consumerArgs{
+struct consumerArgs {
+    // Shared variables
+    std::queue<Vector>& readQueue;
+    std::queue<Vector>& writeQueue;
+    pthread_mutex_t& consumerMutex;
+    pthread_mutex_t& producerMutex;
+    pthread_cond_t& canProduce;
+    pthread_cond_t& canConsume;
+    bool& eof;
+
+    // Own variables
+    pthread_mutex_t writeMutex;
     Function f;
-	std::queue<Vector> &queueOfPoints;
-	std::set<std::pair<Real, Vector>> &candidates;
-	uint32_t &nBestPoints;
-	pthread_mutex_t &queueMutex;
-	pthread_mutex_t &writeMutex;
-	pthread_cond_t &canProduce;
-	pthread_cond_t &canConsume;
-	volatile bool &eof;
+    std::set<std::pair<Real, Vector>> candidates;
+    uint32_t nBestPoints;
 };
 
 void
 my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, Vector min, Vector max);
-

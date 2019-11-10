@@ -4,6 +4,8 @@
 
 #include "thread_pool.h"
 
+constexpr int MaxQueueSize = 2048;
+
 /*
 std::vector<std::pair<Real, Vector>>
 calc_f_with_threads(Function f, const std::vector<Vector>& inData)
@@ -84,17 +86,14 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
     pthread_mutex_t outWrite;
     pthread_mutex_init(&outWrite, nullptr);
 
-    for (size_t i = 0; i < inData.size(); ++i)
-    {
+    for (size_t i = 0; i < inData.size(); ++i) {
         const auto& data = inData[i];
 
         // Записываем начальное значение
         outData[i] = data;
 
-        for (const auto& min_func : min_funcs)
-        {
-            thread_pool.Add([&, data, i]()
-            {
+        for (const auto& min_func : min_funcs) {
+            thread_pool.Add([&, data, i]() {
                 const auto iter_data = min_func(f, data.second, stop_condition);
                 const auto x_curr = iter_data.x_curr;
                 const auto f_curr = iter_data.f_curr;
@@ -121,8 +120,7 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
 
 std::vector<std::pair<Real, Vector>>
 find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints,
-            Vector min, Vector max)
-{
+            Vector min, Vector max) {
     /*// Несколько проверок на входные данные:
     assert(dim > 0u && dim == min.size() && dim == max.size());
     assert(nBestPoints <= nAllPoints && nBestPoints > 0u);
@@ -193,73 +191,156 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
     return answer;*/
     return {};
 }
+
 // tms-сети возвращают нам вектора, компоненты которых принадлежат [0,1)
-void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension){
-	std::ofstream output_file;
-	output_file.open("tms-result-imitation.txt", std::ios::app);
-	for (unsigned int i = 0; i < n; i++){
-			for (unsigned int j = 0; j < numOfDimension; j++){
-				if (j != numOfDimension -1){
-					output_file << uniform(0,1) << " ";
-				} else {
-					output_file << uniform(0,1);
-				}
-			}
-			if (i != n-1){
-				output_file << std::endl;
-			}
-		}
-	output_file.close();
+void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension) {
+    std::ofstream output_file;
+    output_file.open("tms-result-imitation.txt", std::ios::app);
+    for (unsigned int i = 0; i < n; i++) {
+        for (unsigned int j = 0; j < numOfDimension; j++) {
+            if (j != numOfDimension - 1) {
+                output_file << uniform(0, 1) << " ";
+            }
+            else {
+                output_file << uniform(0, 1);
+            }
+        }
+        if (i != n - 1) {
+            output_file << std::endl;
+        }
+    }
+    output_file.close();
+}
+
+/**
+ * \brief Меняет очереди местами (оба мьютекса должны быть залочены перед вызовом)
+ * \tparam T producerArgs или consumerArgs
+ * \param argsStruct Указатель на структуру аргументов
+ * \param writeQueueEmpty [out, optional] Указывает, является ли writeQueue пустой очередью после обмена
+ * \return false - если обе очереди пустые, иначе - true
+ */
+template <typename T>
+bool SwapQueues(T* argsStruct, bool* writeQueueEmpty = nullptr) {
+    bool result = true;
+
+    if (argsStruct->writeQueue.empty() && argsStruct->readQueue.empty()) {
+        result = false;
+    }
+    else {
+        // Меняем очереди местами
+        std::swap(argsStruct->writeQueue, argsStruct->readQueue);
+    }
+
+    if (writeQueueEmpty)
+        *writeQueueEmpty = argsStruct->writeQueue.empty();
+
+    return result;
+}
+
+/**
+ * \brief Проверяет, являются ли обе очереди пустыми
+ * \tparam T producerArgs или consumerArgs
+ * \param argsStruct Указатель на структуру аргументов
+ * \param lockProducer Нужно ли лочить поставщика
+ * \return true - если обе очереди пустые, иначе - false
+ */
+template <typename T>
+bool AreQueuesEmpty(T* argsStruct, bool lockProducer) {
+    if (lockProducer)
+        pthread_mutex_lock(&argsStruct->producerMutex);
+
+    const bool result = argsStruct->writeQueue.empty() && argsStruct->readQueue.empty();
+
+    if (lockProducer)
+        pthread_mutex_unlock(&argsStruct->producerMutex);
+
+    return result;
+}
+
+/**
+ * \brief Проверяет, являются ли обе очереди полными
+ * \tparam T producerArgs или consumerArgs
+ * \param argsStruct Указатель на структуру аргументов
+ * \param lockProducer Нужно ли лочить поставщика
+ * \return true - если обе очереди полные, иначе - false
+ */
+template <typename T>
+bool AreQueuesFull(T* argsStruct, bool lockProducer) {
+    if (lockProducer)
+        pthread_mutex_lock(&argsStruct->producerMutex);
+
+    const bool result = argsStruct->writeQueue.size() >= MaxQueueSize && argsStruct->readQueue.size() >= MaxQueueSize;
+
+    if (lockProducer)
+        pthread_mutex_unlock(&argsStruct->producerMutex);
+
+    return result;
 }
 
 // Поток потребитель
 void* my_calc_f_with_threads(void* args) {
-    consumerArgs* consArg = static_cast<consumerArgs*>(args);
+    consumerArgs* consArgs = static_cast<consumerArgs*>(args);
 
     while (true) {
-        pthread_mutex_lock(&consArg->queueMutex);
+        pthread_mutex_lock(&consArgs->consumerMutex);
 
-        // Если элементов больше не будет, то завершаем работу
-        if (consArg->eof && consArg->queueOfPoints.empty()) {
-            pthread_mutex_unlock(&consArg->queueMutex);
-            break;
-        }
+        if (consArgs->readQueue.empty()) {
+            pthread_mutex_lock(&consArgs->producerMutex);
 
-        // Если остается мало элементов, сигналим поставщику
-        if (consArg->queueOfPoints.size() < 256)
-            pthread_cond_signal(&consArg->canProduce);
+            bool isWriteQueueEmpty;
+            const bool result = SwapQueues(consArgs, &isWriteQueueEmpty);
 
-        // Ждем пока появятся элементы в очереди
-        while (consArg->queueOfPoints.empty()) {
-            pthread_cond_wait(&consArg->canConsume, &consArg->queueMutex);
-
-            // Снова проверяем, будут ли еще элементы
-            if (consArg->eof && consArg->queueOfPoints.empty()) {
-                pthread_mutex_unlock(&consArg->queueMutex);
-                pthread_exit(nullptr);
-                return nullptr;
+            // Если очередь поставщика пуста, то сигналим ему
+            if (isWriteQueueEmpty) {
+                pthread_cond_signal(&consArgs->canProduce);
             }
+
+            // Если обмен был неуспешным (обе очереди пусты)
+            if (!result) {
+                const bool at_eof = consArgs->eof;
+
+                pthread_mutex_unlock(&consArgs->producerMutex);
+
+                // Проверяем, будут ли еще элементы
+                if (at_eof) {
+                    // Если нет, то выходим
+                    pthread_mutex_unlock(&consArgs->consumerMutex);
+                    break;
+                }
+
+                //  Если будут, то ждем
+                while (AreQueuesEmpty(consArgs, true)) {
+                    pthread_cond_wait(&consArgs->canConsume, &consArgs->consumerMutex);
+                }
+
+                // В идеале, анлочить его не нужно здесь
+                pthread_mutex_unlock(&consArgs->producerMutex);
+
+                continue;
+            }
+
+            pthread_mutex_unlock(&consArgs->producerMutex);
         }
 
         // Берем элемент из очереди
-        Vector point = consArg->queueOfPoints.front();
-        consArg->queueOfPoints.pop();
+        Vector point = consArgs->readQueue.front();
+        consArgs->readQueue.pop();
 
-        pthread_mutex_unlock(&consArg->queueMutex);
+        pthread_mutex_unlock(&consArgs->consumerMutex);
 
         // Выполняем функцию
-        auto res = consArg->f(point);
+        auto res = consArgs->f(point);
 
         // Сохраняем результат
 
-        pthread_mutex_lock(&consArg->writeMutex);
+        pthread_mutex_lock(&consArgs->writeMutex);
 
-        consArg->candidates.emplace(res, point);
-        if (consArg->candidates.size() > consArg->nBestPoints){
-        	consArg->candidates.erase(std::prev(consArg->candidates.end()));
+        consArgs->candidates.emplace(res, point);
+        if (consArgs->candidates.size() > consArgs->nBestPoints) {
+            consArgs->candidates.erase(std::prev(consArgs->candidates.end()));
         }
 
-        pthread_mutex_unlock(&consArg->writeMutex);
+        pthread_mutex_unlock(&consArgs->writeMutex);
     }
 
     pthread_exit(nullptr);
@@ -270,161 +351,166 @@ void* my_calc_f_with_threads(void* args) {
 std::vector<std::string> split_string(const std::string& str) {
     std::istringstream iss(str);
     std::vector<std::string> results(std::istream_iterator<std::string>{iss},
-        std::istream_iterator<std::string>());
+                                     std::istream_iterator<std::string>());
 
     return results;
 }
 
 // Функция для треда-поставщика
 void* add_points_to_queue(void* args) {
-	producerArgs* ptr_producer_args = static_cast<producerArgs*>(args);
+    producerArgs* ptrProducerArgs = static_cast<producerArgs*>(args);
 
-	std::queue<Vector> tmpQueue;
-
-	// Размер нашей очереди
-	const unsigned int tmpQueueSize = 2048;
-
-	// Открываем файл
-	std::ifstream file{"tms-result-imitation.txt"};
-
-    // Счётчик количества элементов
-    unsigned int count = 0;
+    // Открываем файл
+    std::ifstream file{"tms-result-imitation.txt"};
 
     std::string str;
 
-	while (true) {
-        // Захватываем мьютекс
-        pthread_mutex_lock(&ptr_producer_args->queueMutex);
+    while (true) {
+        bool at_eof = false;
+        if (std::getline(file, str)) {
+            // Сплитим строку по пробелам, получаем вектор строк results
+            const std::vector<std::string> results = split_string(str);
 
-        // Ждём когда нам посигналят треды-потребители добавить еще элементов
-        // При вызове wait мьютекс освободится, после ожидания снова захватится, когда ему посигналят
-        pthread_cond_wait(&ptr_producer_args->canProduce, &ptr_producer_args->queueMutex);
+            Vector v(results.size());
+            for (unsigned int i = 0; i < results.size(); ++i) {
+                // std::stold приводит строку к long double
+                // Приводим точку на единичном s-мерном кубе к точке в s-мерном прямоугольном параллелепипеде
+                v[i] = std::stold(results[i]) * (ptrProducerArgs->max[i] - ptrProducerArgs->min[i]) + ptrProducerArgs->min[i];
+            }
 
-        pthread_mutex_unlock(&ptr_producer_args->queueMutex);
+            // Сохраняем точку
+            pthread_mutex_lock(&ptrProducerArgs->producerMutex);
 
-         bool at_eof = false;
-         if (std::getline(file, str)) {
-             // Сплитим строку по пробелам, получаем вектор строк results
-             const std::vector<std::string> results = split_string(str);
-
-             Vector v(results.size());
-             for (unsigned int i = 0; i < results.size(); i++) {
-                 // std::stold приводит строку к long double
-                 // Приводим точку на единичном s-мерном кубе к точке в s-мерном прямоугольном параллелепипеде
-                 v[i] = std::stold(results[i]) * (ptr_producer_args->max[i] - ptr_producer_args->min[i]) + ptr_producer_args->min[i];
-             }
-
-             tmpQueue.emplace(v);
-             count++;
-         } else {
-             at_eof = true;
-         }
-
-		if (count >= tmpQueueSize || at_eof) {
-			pthread_mutex_lock(&ptr_producer_args->queueMutex);
-
-            // Обновим eof
-            ptr_producer_args->eof = at_eof;
-
-            // Перемещаем очередь
-            ptr_producer_args->queueOfPoints = std::move(tmpQueue);
+            ptrProducerArgs->writeQueue.push(v);
 
             // Сигналим тредам-потребителям, что в очереди появились элементы
-			pthread_cond_broadcast(&ptr_producer_args->canConsume);
+            pthread_cond_signal(&ptrProducerArgs->canConsume);
 
-            // Обнулим счетчик
-			count = 0;
+            pthread_mutex_unlock(&ptrProducerArgs->producerMutex);
+        }
+        else {
+            at_eof = true;
+        }
 
-            pthread_mutex_unlock(&ptr_producer_args->queueMutex);
+        if (ptrProducerArgs->writeQueue.size() >= MaxQueueSize || at_eof) {
+            pthread_mutex_lock(&ptrProducerArgs->consumerMutex);
+            pthread_mutex_lock(&ptrProducerArgs->producerMutex);
 
-            // Инициализируем очередь заново
-            tmpQueue = std::queue<Vector>{};
+            // Обновим eof
+            ptrProducerArgs->eof = at_eof;
 
+            // Если больше точек не будет, то сигналим всем потребителям (на случай если они спят)
+            if (at_eof) {
+                pthread_cond_broadcast(&ptrProducerArgs->canConsume);
+            }
+
+            // Если обе очереди полные
+            if (AreQueuesFull(ptrProducerArgs, false)) {
+                pthread_mutex_unlock(&ptrProducerArgs->consumerMutex);
+
+                // Ожидаем
+                pthread_cond_wait(&ptrProducerArgs->canProduce, &ptrProducerArgs->producerMutex);
+
+                // Чтобы предотвратить возможный deadlock
+                pthread_mutex_unlock(&ptrProducerArgs->producerMutex);
+
+                pthread_mutex_lock(&ptrProducerArgs->consumerMutex);
+                pthread_mutex_lock(&ptrProducerArgs->producerMutex);
+            }
+
+            // Меняем очереди местами
+            SwapQueues(ptrProducerArgs);
+
+            pthread_mutex_unlock(&ptrProducerArgs->producerMutex);
+            pthread_mutex_unlock(&ptrProducerArgs->consumerMutex);
+
+            // Если элементов больше нет, то выходим
             if (at_eof) {
                 break;
             }
-		}
-	}
+        }
+    }
 
-	file.close();
+    file.close();
 
     pthread_exit(nullptr);
 
-	return nullptr;
+    return nullptr;
 }
 
 void
-my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, Vector min, Vector max) {
-	// Несколько проверок на входные данные:
-	assert(dim > 0u && dim == min.size() && dim == max.size());
-	assert(nBestPoints <= nAllPoints && nBestPoints > 0u);
-	for (uint32_t i = 0; i < dim; ++i) {
-		assert(min[i] <= max[i]);
-	}
+my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, Vector min,
+               Vector max) {
+    // Несколько проверок на входные данные:
+    assert(dim > 0u && dim == min.size() && dim == max.size());
+    assert(nBestPoints <= nAllPoints && nBestPoints > 0u);
+    for (uint32_t i = 0; i < dim; ++i) {
+        assert(min[i] <= max[i]);
+    }
 
-	// Тред-поставщик
-	pthread_mutex_t queueMutex;
-	pthread_mutex_init(&queueMutex, nullptr);
+    // Тред-поставщик
+    pthread_mutex_t queueMutex;
+    pthread_mutex_init(&queueMutex, nullptr);
 
-	pthread_cond_t queueCondAddMore;
-	pthread_cond_init(&queueCondAddMore, nullptr);
+    pthread_cond_t queueCondAddMore;
+    pthread_cond_init(&queueCondAddMore, nullptr);
 
-	pthread_cond_t queueCondEndOfFile;
-	pthread_cond_init(&queueCondEndOfFile, nullptr);
+    pthread_cond_t queueCondEndOfFile;
+    pthread_cond_init(&queueCondEndOfFile, nullptr);
 
-	// Формирование списка лучших кандидатов
-	std::set<std::pair<Real, Vector>> candidates;
+    // Формирование списка лучших кандидатов
+    std::set<std::pair<Real, Vector>> candidates;
 
-	pthread_t provider;
-	std::queue<Vector> queueOfPoints;
-	volatile bool eof = false;
-	producerArgs provider_args{queueOfPoints, queueMutex, queueCondAddMore, queueCondEndOfFile, min, max, eof};
-	pthread_create(&provider, nullptr, &add_points_to_queue, (void*)&provider_args);
+    pthread_t provider;
+    std::queue<Vector> queueOfPoints;
+    bool eof = false;
+    //volatile producerArgs provider_args{queueOfPoints, queueMutex, queueCondAddMore, queueCondEndOfFile, min, max, eof};
+    //pthread_create(&provider, nullptr, &add_points_to_queue, (void*)&provider_args);
 
-//	// ----- Первый этап: вычисление значений функции в узлах сетки с отбором точек-кандидатов -----
-//
-//	// Лимит на группу из одновременно обрабатываемых точек:
-//	const uint32_t GROUP_SIZE = 1024u;
-//
-//
-//
-//	// Сначала складываем точки группами по GROUP_SIZE:
-//	std::vector<Vector> group;
-//	for (uint32_t i = 0; i < nAllPoints; ++i) {
-//		// Получение текущего узла сетки:
-//		const auto net_point = net.GeneratePoint().coordinate;
-//		// Преобразование узла к точке в ограниченной min и max области:
-//		Vector curr(dim);
-//		for (uint32_t i = 0; i < dim; ++i) {
-//			curr[i] = net_point[i] * (max[i] - min[i]) + min[i];
-//		}
-//		if (i == nAllPoints - 1 || group.size() == GROUP_SIZE) {
-//			// Запускаем многопоточное вычисление значений во всех точках
-//			for (auto& it : calc_f_with_threads(f, group)) {
-//				candidates.insert(it);
-//				if (candidates.size() > nBestPoints) {
-//					candidates.erase(std::prev(candidates.end()));
-//				}
-//			}
-//			group.clear();
-//		} else {
-//			group.push_back(curr);
-//		}
-//	}
-//
-//	// ----- Второй этап: запуск алгоритмов поиска локального минимума из выбранных точек -----
-//	// Подготовка (перекладываем точки из set в vector - возможен рост скорости при последовательном размещении в памяти точек):
-//	std::vector<std::pair<Real, Vector>> temp;
-//	for (auto & it : candidates) {
-//		temp.push_back(it);
-//	}
-//
-//	// Многопоточная обработка кандидатов:
-//	auto answer = find_local_mins_with_threads(f, stop_condition, temp);
-//
-//	// Итоговая сортировка всех найденных точек по неубыванию значения функции в них:
-//	std::sort(answer.begin(), answer.end());
+    //	// ----- Первый этап: вычисление значений функции в узлах сетки с отбором точек-кандидатов -----
+    //
+    //	// Лимит на группу из одновременно обрабатываемых точек:
+    //	const uint32_t GROUP_SIZE = 1024u;
+    //
+    //
+    //
+    //	// Сначала складываем точки группами по GROUP_SIZE:
+    //	std::vector<Vector> group;
+    //	for (uint32_t i = 0; i < nAllPoints; ++i) {
+    //		// Получение текущего узла сетки:
+    //		const auto net_point = net.GeneratePoint().coordinate;
+    //		// Преобразование узла к точке в ограниченной min и max области:
+    //		Vector curr(dim);
+    //		for (uint32_t i = 0; i < dim; ++i) {
+    //			curr[i] = net_point[i] * (max[i] - min[i]) + min[i];
+    //		}
+    //		if (i == nAllPoints - 1 || group.size() == GROUP_SIZE) {
+    //			// Запускаем многопоточное вычисление значений во всех точках
+    //			for (auto& it : calc_f_with_threads(f, group)) {
+    //				candidates.insert(it);
+    //				if (candidates.size() > nBestPoints) {
+    //					candidates.erase(std::prev(candidates.end()));
+    //				}
+    //			}
+    //			group.clear();
+    //		} else {
+    //			group.push_back(curr);
+    //		}
+    //	}
+    //
+    //	// ----- Второй этап: запуск алгоритмов поиска локального минимума из выбранных точек -----
+    //	// Подготовка (перекладываем точки из set в vector - возможен рост скорости при последовательном размещении в памяти точек):
+    //	std::vector<std::pair<Real, Vector>> temp;
+    //	for (auto & it : candidates) {
+    //		temp.push_back(it);
+    //	}
+    //
+    //	// Многопоточная обработка кандидатов:
+    //	auto answer = find_local_mins_with_threads(f, stop_condition, temp);
+    //
+    //	// Итоговая сортировка всех найденных точек по неубыванию значения функции в них:
+    //	std::sort(answer.begin(), answer.end());
 
-	pthread_join(provider, nullptr);
-	return;
+    pthread_join(provider, nullptr);
+    return;
 }
