@@ -314,7 +314,7 @@ void* my_calc_f_with_threads(void* args) {
                 }
 
                 // В идеале, анлочить его не нужно здесь
-                pthread_mutex_unlock(&consArgs->producerMutex);
+                pthread_mutex_unlock(&consArgs->consumerMutex);
 
                 continue;
             }

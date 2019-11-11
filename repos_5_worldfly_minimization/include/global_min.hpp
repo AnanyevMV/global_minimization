@@ -51,8 +51,8 @@ struct producerArgs {
     bool& eof;
 
     // Own variables
-    Vector min;
-    Vector max;
+    const Vector min;
+    const Vector max;
 };
 
 struct consumerArgs {
@@ -65,11 +65,12 @@ struct consumerArgs {
     pthread_cond_t& canConsume;
     bool& eof;
 
+    pthread_mutex_t& writeMutex;
+    std::set<std::pair<Real, Vector>>& candidates;
+
     // Own variables
-    pthread_mutex_t writeMutex;
-    Function f;
-    std::set<std::pair<Real, Vector>> candidates;
-    uint32_t nBestPoints;
+    const Function f;
+    const uint32_t nBestPoints;
 };
 
 void
