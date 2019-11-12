@@ -6,68 +6,10 @@
 
 constexpr int MaxQueueSize = 2048;
 
-/*
-std::vector<std::pair<Real, Vector>>
-calc_f_with_threads(Function f, const std::vector<Vector>& inData)
-{
-    // Создаем вектор под ответ:
-    std::vector<std::pair<Real, Vector>> outData(inData.size());
-
-    // Количество ядер:
-    uint32_t nCores = std::max(1u, std::thread::hardware_concurrency());
-
-    // Вектор из тредов:
-    std::vector<std::thread> t;
-
-    // Мьютексы на чтение и запись:
-    std::mutex inRead, outWrite;
-
-    uint32_t globalIndex = 0;
-
-    // Создаем столько тредов, сколько ядер:
-    for (uint32_t i = 0; i < nCores; i++)
-    {
-        t.push_back(std::thread([&]
-        {
-            while (1)
-            {
-                inRead.lock();
-                uint32_t i = globalIndex;
-                if (globalIndex >= inData.size())
-                {
-                    inRead.unlock();
-                    return;
-                }
-
-                auto x = inData[i];
-                globalIndex++;
-                inRead.unlock();
-
-                auto res = f(x);
-
-                outWrite.lock();
-                outData[i] = {res, x};
-                outWrite.unlock();
-            }
-            return;
-        }));
-    }
-
-    // Присоединяем все треды к материнскому треду, гарантируя то, что все они будут выполнены
-    for (uint32_t i = 0; i < nCores; ++i)
-    {
-        t[i].join();
-    }
-
-    assert(globalIndex == inData.size());
-
-    return outData;
-}
-*/
 
 std::vector<std::pair<Real, Vector>>
 find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
-                             const std::vector<std::pair<Real, Vector>>& inData, const Vector & min, const Vector & max) {
+                             const std::vector<std::pair<Real, Vector>>& inData) {
     // Создаем вектор под ответ
     std::vector<std::pair<Real, Vector>> outData(inData.size());
 
@@ -97,15 +39,7 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
                 const auto iter_data = min_func(f, data.second, stop_condition);
                 const auto x_curr = iter_data.x_curr;
 
-                // Если точка вышла за граница то мы оставляем старое значение и выходим из функции
-                for (size_t i = 0; i < max.size(); i++){
-                	if (min[i] > x_curr || x_curr > max[i]){
-                		return;
-                	}
-                }
-
                 const auto f_curr = iter_data.f_curr;
-
                 const auto pair = std::make_pair(f_curr, x_curr);
 
                 // Записываем ответ
@@ -126,79 +60,6 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
 }
 
 
-std::vector<std::pair<Real, Vector>>
-find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints,
-            Vector min, Vector max) {
-    /*// Несколько проверок на входные данные:
-    assert(dim > 0u && dim == min.size() && dim == max.size());
-    assert(nBestPoints <= nAllPoints && nBestPoints > 0u);
-    for (uint32_t i = 0; i < dim; ++i)
-    {
-        assert(min[i] <= max[i]);
-    }
-
-    // Объект-генератор сетки:
-    SobolSeqGenerator net;
-    //net.Init(nAllPoints, dim, "D:\\Programs\\VS\\worldfly_minimization\\WorldflyMinimization\\bin\\tests\\new-joe-kuo-6.21201.txt");
-    net.Init(nAllPoints, dim,
-             "D:\\Programs\\VS\\worldfly_minimization\\WorldflyMinimization\\bin\\tests\\new-joe-kuo-6.21201.txt");
-
-    // ----- Первый этап: вычисление значений функции в узлах сетки с отбором точек-кандидатов -----
-
-    // Лимит на группу из одновременно обрабатываемых точек:
-    const uint32_t GROUP_SIZE = 1024u;
-
-    // Формирование списка лучших кандидатов
-    std::set<std::pair<Real, Vector>> candidates;
-
-    // Сначала складываем точки группами по GROUP_SIZE:
-    std::vector<Vector> group;
-    for (uint32_t i = 0; i < nAllPoints; ++i)
-    {
-        // Получение текущего узла сетки:
-        const auto net_point = net.GeneratePoint().coordinate;
-        // Преобразование узла к точке в ограниченной min и max области:
-        Vector curr(dim);
-        for (uint32_t i = 0; i < dim; ++i)
-        {
-            curr[i] = net_point[i] * (max[i] - min[i]) + min[i];
-        }
-        if (i == nAllPoints - 1 || group.size() == GROUP_SIZE)
-        {
-            // Запускаем многопоточное вычисление значений во всех точках
-            for (auto& it : calc_f_with_threads(f, group))
-            {
-                candidates.insert(it);
-                if (candidates.size() > nBestPoints)
-                {
-                    candidates.erase(std::prev(candidates.end()));
-                }
-            }
-            group.clear();
-        }
-        else
-        {
-            group.push_back(curr);
-        }
-    }
-
-    // ----- Второй этап: запуск алгоритмов поиска локального минимума из выбранных точек -----
-    // Подготовка (перекладываем точки из set в vector - возможен рост скорости при последовательном размещении в памяти точек):
-    std::vector<std::pair<Real, Vector>> temp;
-    for (auto& it : candidates)
-    {
-        temp.push_back(it);
-    }
-
-    // Многопоточная обработка кандидатов:
-    auto answer = find_local_mins_with_threads(f, stop_condition, temp);
-
-    // Итоговая сортировка всех найденных точек по неубыванию значения функции в них:
-    std::sort(answer.begin(), answer.end());
-    
-    return answer;*/
-    return {};
-}
 
 // tms-сети возвращают нам вектора, компоненты которых принадлежат [0,1)
 void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension) {
@@ -286,7 +147,7 @@ bool AreQueuesFull(T* argsStruct, bool lockProducer) {
 }
 
 // Поток потребитель
-void* my_calc_f_with_threads(void* args) {
+void* calc_f_with_threads(void* args) {
     consumerArgs* consArgs = static_cast<consumerArgs*>(args);
 
     while (true) {
@@ -446,8 +307,8 @@ void* add_points_to_queue(void* args) {
     return nullptr;
 }
 
-void
-my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints,const Vector& min,
+std::vector<std::pair<Real, Vector>>
+find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints,const Vector& min,
                const Vector& max) {
     // Несколько проверок на входные данные:
     assert(dim > 0u && dim == min.size() && dim == max.size());
@@ -529,10 +390,10 @@ my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, ui
 	}
 
 	// Многопоточная обработка кандидатов:
-	auto answer = find_local_mins_with_threads(f, stop_condition, temp, min, max);
+	auto answer = find_local_mins_with_threads(f, stop_condition, temp);
 
 	// Итоговая сортировка всех найденных точек по неубыванию значения функции в них:
 	std::sort(answer.begin(), answer.end());
 
-    return;
+    return answer;
 }
