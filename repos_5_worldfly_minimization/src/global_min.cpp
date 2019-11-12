@@ -67,7 +67,7 @@ calc_f_with_threads(Function f, const std::vector<Vector>& inData)
 
 std::vector<std::pair<Real, Vector>>
 find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
-                             const std::vector<std::pair<Real, Vector>>& inData) {
+                             const std::vector<std::pair<Real, Vector>>& inData, const Vector & min, const Vector & max) {
     // Создаем вектор под ответ
     std::vector<std::pair<Real, Vector>> outData(inData.size());
 
@@ -96,6 +96,14 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
             thread_pool.Add([&, data, i]() {
                 const auto iter_data = min_func(f, data.second, stop_condition);
                 const auto x_curr = iter_data.x_curr;
+
+                // Если точка вышла за граница то мы оставляем старое значение и выходим из функции
+                for (size_t i = 0; i < max.size(); i++){
+                	if (min[i] > x_curr || x_curr > max[i]){
+                		return;
+                	}
+                }
+
                 const auto f_curr = iter_data.f_curr;
 
                 const auto pair = std::make_pair(f_curr, x_curr);
@@ -358,7 +366,7 @@ std::vector<std::string> split_string(const std::string& str) {
 
 // Функция для треда-поставщика
 void* add_points_to_queue(void* args) {
-    producerArgs* ptrProducerArgs = static_cast<producerArgs*>(args);
+   volatile producerArgs* ptrProducerArgs = static_cast<producerArgs*>(args);
 
     // Открываем файл
     std::ifstream file{"tms-result-imitation.txt"};
@@ -439,8 +447,8 @@ void* add_points_to_queue(void* args) {
 }
 
 void
-my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, Vector min,
-               Vector max) {
+my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints,const Vector& min,
+               const Vector& max) {
     // Несколько проверок на входные данные:
     assert(dim > 0u && dim == min.size() && dim == max.size());
     assert(nBestPoints <= nAllPoints && nBestPoints > 0u);
@@ -448,69 +456,83 @@ my_find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, ui
         assert(min[i] <= max[i]);
     }
 
-    // Тред-поставщик
-    pthread_mutex_t queueMutex;
-    pthread_mutex_init(&queueMutex, nullptr);
+    // Создаем 2 очереди
+    std::queue<Vector> readQueue;
+    std::queue<Vector> writeQueue;
 
-    pthread_cond_t queueCondAddMore;
-    pthread_cond_init(&queueCondAddMore, nullptr);
+    // Мьютекс потребителя
+    pthread_mutex_t consumerMutex;
+    pthread_mutex_init(&consumerMutex, nullptr);
 
-    pthread_cond_t queueCondEndOfFile;
-    pthread_cond_init(&queueCondEndOfFile, nullptr);
+    // Мьютекс поставщика
+    pthread_mutex_t producerMutex;
+    pthread_mutex_init(&producerMutex, nullptr);
+
+    // Мьютекс для потребителей для записи результатов
+    pthread_mutex_t writeMutex;
+    pthread_mutex_init(&writeMutex, nullptr);
+
+    // Условная переменная "можно производить"
+    pthread_cond_t canProduce;
+    pthread_cond_init(&canProduce, nullptr);
+
+    // Условная переменная "можно потреблять"
+    pthread_cond_t canConsume;
+    pthread_cond_init(&canConsume, nullptr);
 
     // Формирование списка лучших кандидатов
     std::set<std::pair<Real, Vector>> candidates;
 
-    pthread_t provider;
-    std::queue<Vector> queueOfPoints;
+    // bool переменная, отвечающая за то, закончился ли файл
     bool eof = false;
-    //volatile producerArgs provider_args{queueOfPoints, queueMutex, queueCondAddMore, queueCondEndOfFile, min, max, eof};
-    //pthread_create(&provider, nullptr, &add_points_to_queue, (void*)&provider_args);
 
-    //	// ----- Первый этап: вычисление значений функции в узлах сетки с отбором точек-кандидатов -----
-    //
-    //	// Лимит на группу из одновременно обрабатываемых точек:
-    //	const uint32_t GROUP_SIZE = 1024u;
-    //
-    //
-    //
-    //	// Сначала складываем точки группами по GROUP_SIZE:
-    //	std::vector<Vector> group;
-    //	for (uint32_t i = 0; i < nAllPoints; ++i) {
-    //		// Получение текущего узла сетки:
-    //		const auto net_point = net.GeneratePoint().coordinate;
-    //		// Преобразование узла к точке в ограниченной min и max области:
-    //		Vector curr(dim);
-    //		for (uint32_t i = 0; i < dim; ++i) {
-    //			curr[i] = net_point[i] * (max[i] - min[i]) + min[i];
-    //		}
-    //		if (i == nAllPoints - 1 || group.size() == GROUP_SIZE) {
-    //			// Запускаем многопоточное вычисление значений во всех точках
-    //			for (auto& it : calc_f_with_threads(f, group)) {
-    //				candidates.insert(it);
-    //				if (candidates.size() > nBestPoints) {
-    //					candidates.erase(std::prev(candidates.end()));
-    //				}
-    //			}
-    //			group.clear();
-    //		} else {
-    //			group.push_back(curr);
-    //		}
-    //	}
-    //
-    //	// ----- Второй этап: запуск алгоритмов поиска локального минимума из выбранных точек -----
-    //	// Подготовка (перекладываем точки из set в vector - возможен рост скорости при последовательном размещении в памяти точек):
-    //	std::vector<std::pair<Real, Vector>> temp;
-    //	for (auto & it : candidates) {
-    //		temp.push_back(it);
-    //	}
-    //
-    //	// Многопоточная обработка кандидатов:
-    //	auto answer = find_local_mins_with_threads(f, stop_condition, temp);
-    //
-    //	// Итоговая сортировка всех найденных точек по неубыванию значения функции в них:
-    //	std::sort(answer.begin(), answer.end());
+    pthread_t producer;
 
-    pthread_join(provider, nullptr);
+    // Создаем экземпляр структуры аргументов поставщика
+    volatile producerArgs provider_args{readQueue, writeQueue, consumerMutex, producerMutex, canProduce, canConsume, eof, min, max};
+
+    // Создаем экземпляр структуры аргументов потребителя
+    volatile consumerArgs consumer_args{readQueue, writeQueue, consumerMutex, producerMutex, canProduce, canConsume, eof,
+    writeMutex, candidates, f, nBestPoints};
+
+    pthread_create(&producer, nullptr, &add_points_to_queue, static_cast<void*>(&provider_args));
+
+    // узнаем количество ядер
+    uint32_t nCores = std::max(1u, std::thread::hardware_concurrency());
+
+
+    // Если ядер > 4, то 1 ядро оставляем системе
+    // Иначе задействуем все ядра (1 ядро поставщику)
+    uint32_t howManyConsumers = nCores > 4 ? nCores - 2 : nCores - 1;
+
+    // Вектор идентификаторов тредов-потребителей
+    std::vector<pthread_t> vectOfConsumersTids;
+
+    for (uint32_t i = 0; i < howManyConsumers; ++i){
+    	pthread_t tid;
+    	pthread_create(&tid, nullpttr, &my_calc_f_with_threads, static_cast<void*>(&consumer_args));
+    	vectOfConsumersTisd.push_back(tid);
+    }
+
+
+    pthread_join(producer, nullptr);
+
+    for (auto tid : vectOfConsumersTids){
+    	pthread_join(tid, nullptr);
+    }
+
+	// ----- Второй этап: запуск алгоритмов поиска локального минимума из выбранных точек -----
+	// Подготовка (перекладываем точки из set в vector - возможен рост скорости при последовательном размещении в памяти точек):
+	std::vector<std::pair<Real, Vector>> temp;
+	for (auto & it : candidates) {
+		temp.push_back(it);
+	}
+
+	// Многопоточная обработка кандидатов:
+	auto answer = find_local_mins_with_threads(f, stop_condition, temp, min, max);
+
+	// Итоговая сортировка всех найденных точек по неубыванию значения функции в них:
+	std::sort(answer.begin(), answer.end());
+
     return;
 }

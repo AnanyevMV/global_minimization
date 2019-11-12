@@ -51,8 +51,8 @@ struct producerArgs {
     bool& eof;
 
     // Own variables
-    const Vector min;
-    const Vector max;
+    const Vector& min;
+    const Vector& max;
 };
 
 struct consumerArgs {
