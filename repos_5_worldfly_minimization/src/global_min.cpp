@@ -282,7 +282,8 @@ void* add_points_to_queue(void* args) {
 
                 // Чтобы предотвратить возможный deadlock
                 pthread_mutex_unlock(&ptrProducerArgs->producerMutex);
-
+                // Мы лочим в одинаковом порядке порядке, как и треды-потребители
+                // Иначе может быть deadlock
                 pthread_mutex_lock(&ptrProducerArgs->consumerMutex);
                 pthread_mutex_lock(&ptrProducerArgs->producerMutex);
             }
@@ -307,6 +308,7 @@ void* add_points_to_queue(void* args) {
     return nullptr;
 }
 
+
 std::vector<std::pair<Real, Vector>>
 find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints,const Vector& min,
                const Vector& max) {
@@ -321,7 +323,7 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
     std::queue<Vector> readQueue;
     std::queue<Vector> writeQueue;
 
-    // Мьютекс потребителя
+    // Мьютекс потребителей
     pthread_mutex_t consumerMutex;
     pthread_mutex_init(&consumerMutex, nullptr);
 
@@ -361,7 +363,6 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
     // узнаем количество ядер
     uint32_t nCores = std::max(1u, std::thread::hardware_concurrency());
 
-
     // Если ядер > 4, то 1 ядро оставляем системе
     // Иначе задействуем все ядра (1 ядро поставщику)
     uint32_t howManyConsumers = nCores > 4 ? nCores - 2 : nCores - 1;
@@ -374,7 +375,6 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
     	pthread_create(&tid, nullpttr, &my_calc_f_with_threads, static_cast<void*>(&consumer_args));
     	vectOfConsumersTisd.push_back(tid);
     }
-
 
     pthread_join(producer, nullptr);
 
