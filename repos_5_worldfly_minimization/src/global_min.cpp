@@ -259,6 +259,7 @@ void* add_points_to_queue(void* args) {
             // Если есть спящие треды, то сигналим тредам-потребителям, что в очереди появились элементы
             if (ptrProducerArgs->producerCanSignal){
             	pthread_cond_broadcast(&ptrProducerArgs->canConsume);
+            	ptrProducerArgs->producerCanSignal = false;
             }
             pthread_mutex_unlock(&ptrProducerArgs->producerMutex);
         }
