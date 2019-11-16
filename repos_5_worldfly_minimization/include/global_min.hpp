@@ -48,6 +48,7 @@ struct producerArgs {
     pthread_cond_t& canProduce;
     pthread_cond_t& canConsume;
     bool& eof;
+    bool& producerCanSignal;
 
     // Own variables
     const Vector& min;
@@ -64,6 +65,7 @@ struct consumerArgs {
     pthread_cond_t& canProduce;
     pthread_cond_t& canConsume;
     bool& eof;
+    bool& producerCanSignal;
 
     pthread_mutex_t& writeMutex;
     std::set<std::pair<Real, Vector>>& candidates;

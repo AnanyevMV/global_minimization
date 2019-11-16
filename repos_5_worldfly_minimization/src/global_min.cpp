@@ -159,7 +159,7 @@ void* calc_f_with_threads(void* args) {
             bool isWriteQueueEmpty;
             const bool result = SwapQueues(consArgs, &isWriteQueueEmpty);
 
-            // Если очередь поставщика пуста, то сигналим ему
+            // Если очередь поставщика пуста (после свапа), то сигналим ему
             if (isWriteQueueEmpty) {
                 pthread_cond_signal(&consArgs->canProduce);
             }
@@ -172,17 +172,21 @@ void* calc_f_with_threads(void* args) {
 
                 // Проверяем, будут ли еще элементы
                 if (at_eof) {
-                    // Если нет, то выходим
+                    // Если нет, то выходим из цикла (и из функции)
                     pthread_mutex_unlock(&consArgs->consumerMutex);
                     break;
                 }
 
                 //  Если будут, то ждем
                 while (AreQueuesEmpty(consArgs, true)) {
+                	pthread_mutex_lock(&consArgs->producerMutex);
+                	consArgs->producerCanSignal = true;
+                	pthread_mutex_unlock(&consArgs->producerMutex);
                     pthread_cond_wait(&consArgs->canConsume, &consArgs->consumerMutex);
                 }
 
                 // В идеале, анлочить его не нужно здесь
+                // А то там он в цикле снова захватится
                 pthread_mutex_unlock(&consArgs->consumerMutex);
 
                 continue;
@@ -252,9 +256,10 @@ void* add_points_to_queue(void* args) {
 
             ptrProducerArgs->writeQueue.push(v);
 
-            // Сигналим тредам-потребителям, что в очереди появились элементы
-            pthread_cond_signal(&ptrProducerArgs->canConsume);
-
+            // Если есть спящие треды, то сигналим тредам-потребителям, что в очереди появились элементы
+            if (ptrProducerArgs->producerCanSignal){
+            	pthread_cond_broadcast(&ptrProducerArgs->canConsume);
+            }
             pthread_mutex_unlock(&ptrProducerArgs->producerMutex);
         }
         else {
@@ -282,7 +287,7 @@ void* add_points_to_queue(void* args) {
 
                 // Чтобы предотвратить возможный deadlock
                 pthread_mutex_unlock(&ptrProducerArgs->producerMutex);
-                // Мы лочим в одинаковом порядке порядке, как и треды-потребители
+                // Мы лочим в одинаковом порядке, как и треды-потребители
                 // Иначе может быть deadlock
                 pthread_mutex_lock(&ptrProducerArgs->consumerMutex);
                 pthread_mutex_lock(&ptrProducerArgs->producerMutex);
@@ -349,14 +354,16 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
     // bool переменная, отвечающая за то, закончился ли файл
     bool eof = false;
 
+    bool producerCanSignal = false;
+
     pthread_t producer;
 
     // Создаем экземпляр структуры аргументов поставщика
-    volatile producerArgs provider_args{readQueue, writeQueue, consumerMutex, producerMutex, canProduce, canConsume, eof, min, max};
+    volatile producerArgs provider_args{readQueue, writeQueue, consumerMutex, producerMutex, canProduce, canConsume, eof, producerCanSignal,min, max};
 
     // Создаем экземпляр структуры аргументов потребителя
     volatile consumerArgs consumer_args{readQueue, writeQueue, consumerMutex, producerMutex, canProduce, canConsume, eof,
-    writeMutex, candidates, f, nBestPoints};
+    producerCanSignal, writeMutex, candidates, f, nBestPoints};
 
     pthread_create(&producer, nullptr, &add_points_to_queue, static_cast<void*>(&provider_args));
 
