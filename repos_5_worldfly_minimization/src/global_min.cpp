@@ -60,7 +60,6 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
 }
 
 
-
 // tms-сети возвращают нам вектора, компоненты которых принадлежат [0,1)
 void __tmp_tms_result_imitation(unsigned int n, unsigned int numOfDimension) {
     std::ofstream output_file;
@@ -148,7 +147,7 @@ bool AreQueuesFull(T* argsStruct, bool lockProducer) {
 
 // Поток потребитель
 void* calc_f_with_threads(void* args) {
-    consumerArgs* consArgs = static_cast<consumerArgs*>(args);
+    volatile consumerArgs* consArgs = static_cast<consumerArgs*>(args);
 
     while (true) {
         pthread_mutex_lock(&consArgs->consumerMutex);
@@ -179,9 +178,10 @@ void* calc_f_with_threads(void* args) {
 
                 //  Если будут, то ждем
                 while (AreQueuesEmpty(consArgs, true)) {
-                	pthread_mutex_lock(&consArgs->producerMutex);
-                	consArgs->producerCanSignal = true;
-                	pthread_mutex_unlock(&consArgs->producerMutex);
+                    pthread_mutex_lock(&consArgs->producerMutex);
+                    consArgs->producerCanSignal = true;
+                    pthread_mutex_unlock(&consArgs->producerMutex);
+
                     pthread_cond_wait(&consArgs->canConsume, &consArgs->consumerMutex);
                 }
 
@@ -231,7 +231,7 @@ std::vector<std::string> split_string(const std::string& str) {
 
 // Функция для треда-поставщика
 void* add_points_to_queue(void* args) {
-   volatile producerArgs* ptrProducerArgs = static_cast<producerArgs*>(args);
+    volatile producerArgs* ptrProducerArgs = static_cast<producerArgs*>(args);
 
     // Открываем файл
     std::ifstream file{"tms-result-imitation.txt"};
@@ -257,12 +257,20 @@ void* add_points_to_queue(void* args) {
             ptrProducerArgs->writeQueue.push(v);
 
             // Если есть спящие треды, то сигналим тредам-потребителям, что в очереди появились элементы
-            if (ptrProducerArgs->producerCanSignal){
-            	pthread_mutex_lock(&ptrProducerArgs->consumerMutex);
-            	pthread_cond_signal(&ptrProducerArgs->canConsume);
-            	ptrProducerArgs->producerCanSignal = false;
-            	pthread_mutex_unlock(&ptrProducerArgs->consumerMutex);
+            if (ptrProducerArgs->producerCanSignal) {
+                // Предотвращаем deadlock
+                pthread_mutex_unlock(&ptrProducerArgs->producerMutex);
+
+                // Лочим в правильном порядке
+                pthread_mutex_lock(&ptrProducerArgs->consumerMutex);
+                pthread_mutex_lock(&ptrProducerArgs->producerMutex);
+
+                ptrProducerArgs->producerCanSignal = false;
+                pthread_cond_broadcast(&ptrProducerArgs->canConsume);
+
+                pthread_mutex_unlock(&ptrProducerArgs->consumerMutex);
             }
+
             pthread_mutex_unlock(&ptrProducerArgs->producerMutex);
         }
         else {
@@ -318,8 +326,8 @@ void* add_points_to_queue(void* args) {
 
 
 std::vector<std::pair<Real, Vector>>
-find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints,const Vector& min,
-               const Vector& max) {
+find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint32_t nBestPoints, uint32_t nAllPoints, const Vector& min,
+            const Vector& max) {
     // Несколько проверок на входные данные:
     assert(dim > 0u && dim == min.size() && dim == max.size());
     assert(nBestPoints <= nAllPoints && nBestPoints > 0u);
@@ -362,48 +370,49 @@ find_absmin(Function f, const StopCondition& stop_condition, uint32_t dim, uint3
     pthread_t producer;
 
     // Создаем экземпляр структуры аргументов поставщика
-    volatile producerArgs provider_args{readQueue, writeQueue, consumerMutex, producerMutex, canProduce, canConsume, eof, producerCanSignal,min, max};
+    producerArgs provider_args{
+        readQueue, writeQueue, consumerMutex, producerMutex, canProduce, canConsume, eof, producerCanSignal, min, max
+    };
 
     // Создаем экземпляр структуры аргументов потребителя
-    volatile consumerArgs consumer_args{readQueue, writeQueue, consumerMutex, producerMutex, canProduce, canConsume, eof,
-    producerCanSignal, writeMutex, candidates, f, nBestPoints};
+    consumerArgs consumer_args{
+        readQueue, writeQueue, consumerMutex, producerMutex, canProduce, canConsume, eof,
+        producerCanSignal, writeMutex, candidates, f, nBestPoints
+    };
 
     pthread_create(&producer, nullptr, &add_points_to_queue, static_cast<void*>(&provider_args));
 
     // узнаем количество ядер
-    uint32_t nCores = std::max(1u, std::thread::hardware_concurrency());
+    const uint32_t nCores = std::max(1u, std::thread::hardware_concurrency());
 
     // Если ядер > 4, то 1 ядро оставляем системе
     // Иначе задействуем все ядра (1 ядро поставщику)
-    uint32_t howManyConsumers = nCores > 4 ? nCores - 2 : nCores - 1;
+    const uint32_t howManyConsumers = nCores > 4 ? nCores - 2 : nCores - 1;
 
     // Вектор идентификаторов тредов-потребителей
-    std::vector<pthread_t> vectOfConsumersTids;
+    std::vector<pthread_t> vectOfConsumersTids(howManyConsumers);
 
-    for (uint32_t i = 0; i < howManyConsumers; ++i){
-    	pthread_t tid;
-    	pthread_create(&tid, nullpttr, &my_calc_f_with_threads, static_cast<void*>(&consumer_args));
-    	vectOfConsumersTisd.push_back(tid);
+    for (uint32_t i = 0; i < howManyConsumers; ++i) {
+        pthread_t tid;
+        pthread_create(&tid, nullptr, &calc_f_with_threads, static_cast<void*>(&consumer_args));
+        vectOfConsumersTids.push_back(tid);
     }
 
     pthread_join(producer, nullptr);
 
-    for (auto tid : vectOfConsumersTids){
-    	pthread_join(tid, nullptr);
+    for (auto tid : vectOfConsumersTids) {
+        pthread_join(tid, nullptr);
     }
 
-	// ----- Второй этап: запуск алгоритмов поиска локального минимума из выбранных точек -----
-	// Подготовка (перекладываем точки из set в vector - возможен рост скорости при последовательном размещении в памяти точек):
-	std::vector<std::pair<Real, Vector>> temp;
-	for (auto & it : candidates) {
-		temp.push_back(it);
-	}
+    // ----- Второй этап: запуск алгоритмов поиска локального минимума из выбранных точек -----
+    // Подготовка (перекладываем точки из set в vector - возможен рост скорости при последовательном размещении в памяти точек):
+    std::vector<std::pair<Real, Vector>> temp(candidates.begin(), candidates.end());
 
-	// Многопоточная обработка кандидатов:
-	auto answer = find_local_mins_with_threads(f, stop_condition, temp);
+    // Многопоточная обработка кандидатов:
+    auto answer = find_local_mins_with_threads(f, stop_condition, temp);
 
-	// Итоговая сортировка всех найденных точек по неубыванию значения функции в них:
-	std::sort(answer.begin(), answer.end());
+    // Итоговая сортировка всех найденных точек по неубыванию значения функции в них:
+    std::sort(answer.begin(), answer.end());
 
     return answer;
 }
