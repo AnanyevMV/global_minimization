@@ -165,25 +165,27 @@ void* calc_f_with_threads(void* args) {
 
             // Если обмен был неуспешным (обе очереди пусты)
             if (!result) {
-                const bool at_eof = consArgs->eof;
-
-                pthread_mutex_unlock(&consArgs->producerMutex);
-
                 // Проверяем, будут ли еще элементы
-                if (at_eof) {
+                if (consArgs->eof) {
                     // Если нет, то выходим из цикла (и из функции)
+                    pthread_mutex_unlock(&consArgs->producerMutex);
                     pthread_mutex_unlock(&consArgs->consumerMutex);
                     break;
                 }
 
                 //  Если будут, то ждем
-                while (AreQueuesEmpty(consArgs, true)) {
-                    pthread_mutex_lock(&consArgs->producerMutex);
-                    consArgs->producerCanSignal = true;
-                    pthread_mutex_unlock(&consArgs->producerMutex);
+                while (AreQueuesEmpty(consArgs, false)) {
+                    if (consArgs->eof)
+                        break;
 
+                    consArgs->producerCanSignal = true;
+
+                    pthread_mutex_unlock(&consArgs->producerMutex);
                     pthread_cond_wait(&consArgs->canConsume, &consArgs->consumerMutex);
+                    pthread_mutex_lock(&consArgs->producerMutex);
                 }
+
+                pthread_mutex_unlock(&consArgs->producerMutex);
 
                 // В идеале, анлочить его не нужно здесь
                 // А то там он в цикле снова захватится
