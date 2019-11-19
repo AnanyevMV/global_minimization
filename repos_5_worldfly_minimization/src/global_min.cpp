@@ -113,15 +113,8 @@ bool SwapQueues(T* argsStruct, bool* writeQueueEmpty = nullptr) {
  * \return true - если обе очереди пустые, иначе - false
  */
 template <typename T>
-bool AreQueuesEmpty(T* argsStruct, bool lockProducer) {
-    if (lockProducer)
-        pthread_mutex_lock(&argsStruct->producerMutex);
-
+bool AreQueuesEmpty(T* argsStruct) {
     const bool result = argsStruct->writeQueue.empty() && argsStruct->readQueue.empty();
-
-    if (lockProducer)
-        pthread_mutex_unlock(&argsStruct->producerMutex);
-
     return result;
 }
 
@@ -133,15 +126,8 @@ bool AreQueuesEmpty(T* argsStruct, bool lockProducer) {
  * \return true - если обе очереди полные, иначе - false
  */
 template <typename T>
-bool AreQueuesFull(T* argsStruct, bool lockProducer) {
-    if (lockProducer)
-        pthread_mutex_lock(&argsStruct->producerMutex);
-
+bool AreQueuesFull(T* argsStruct) {
     const bool result = argsStruct->writeQueue.size() >= MaxQueueSize && argsStruct->readQueue.size() >= MaxQueueSize;
-
-    if (lockProducer)
-        pthread_mutex_unlock(&argsStruct->producerMutex);
-
     return result;
 }
 
@@ -174,7 +160,7 @@ void* calc_f_with_threads(void* args) {
                 }
 
                 //  Если будут, то ждем
-                while (AreQueuesEmpty(consArgs, false)) {
+                while (AreQueuesEmpty(consArgs)) {
                     if (consArgs->eof)
                         break;
 
@@ -292,7 +278,7 @@ void* add_points_to_queue(void* args) {
             }
 
             // Если обе очереди полные
-            if (AreQueuesFull(ptrProducerArgs, false)) {
+            if (AreQueuesFull(ptrProducerArgs)) {
                 pthread_mutex_unlock(&ptrProducerArgs->consumerMutex);
 
                 // Ожидаем
