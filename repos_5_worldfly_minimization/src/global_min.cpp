@@ -38,17 +38,23 @@ find_local_mins_with_threads(Function f, const StopCondition& stop_condition,
             thread_pool.Add([&, data, i]() {
                 const auto iter_data = min_func(f, data.second, stop_condition);
                 const auto x_curr = iter_data.x_curr;
-
+                bool flag = true;
+                for (auto element : x_curr){
+                	if (std::isnan(element)){
+                		flag = false;
+                		break;
+                	}
+                }
                 const auto f_curr = iter_data.f_curr;
-                const auto pair = std::make_pair(f_curr, x_curr);
+                if (flag && !std::isnan(f_curr)){
+                	// Записываем ответ
+					pthread_mutex_lock(&outWrite);
+					// Заменяемым минимальным
+					const auto pair = std::make_pair(f_curr, x_curr);
+					outData[i] = std::min(outData[i], pair);
+					pthread_mutex_unlock(&outWrite);
+                }
 
-                // Записываем ответ
-                pthread_mutex_lock(&outWrite);
-
-                // Заменяемым минимальным
-                outData[i] = std::min(outData[i], pair);
-
-                pthread_mutex_unlock(&outWrite);
             });
         }
     }
