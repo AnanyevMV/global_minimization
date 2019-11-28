@@ -1,6 +1,3 @@
-[submodule "tms-nets"]
-	path = tms-nets
-	url = https://github.com/jointpoints/tms-nets
 [submodule "tms-nets-development"]
 	path = tms-nets-development
 	url = https://github.com/jointpoints/tms-nets
